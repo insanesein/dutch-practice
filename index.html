@@ -8,25 +8,25 @@
 :root{
   --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
-  --bg:#0c0a14;--bg2:#110e1e;--bg3:#160f28;
-  --surface:#1a1530;--surface2:#221a3a;
-  --border:#2a2048;--border2:#362d58;
-  --p100:#d8d2fa;--p200:#b8adff;--p300:#9585f5;
-  --p400:#7c65e8;--p500:#6548d4;--p600:#5236b0;
-  --p700:#3d2888;--p800:#2a1a62;--p900:#190f3e;
-  --text:#ede9ff;--text2:#9b94c0;--text3:#584f7a;
-  --accent2:#c0392b;--accent2-light:#2d1010;
-  --green:#2dd4a0;--green-light:#0a2e22;
-  --amber:#f5a623;--amber-light:#2d1e06;
+  --bg:#e8e8ec;--bg2:#f2f2f5;--bg3:#dddde3;
+  --surface:#ffffff;--surface2:#f0eeff;
+  --border:#d4d4da;--border2:#bebec8;
+  --p100:#190f3e;--p200:#3d2888;--p300:#5236b0;
+  --p400:#6548d4;--p500:#7c65e8;--p600:#9585f5;
+  --p700:#c4b8f0;--p800:#ddd8f8;--p900:#ede9ff;
+  --text:#1a1530;--text2:#4a3f7a;--text3:#8070b0;
+  --accent2:#c0392b;--accent2-light:#fdecea;
+  --green:#1a7a5e;--green-light:#e6f7f2;
+  --amber:#a05e0a;--amber-light:#fff3e0;
   --radius:12px;--radius-sm:8px;
   --shadow:0 2px 12px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;max-width:520px;margin:0 auto;overflow-x:hidden}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;max-width:520px;margin:0 auto;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ── NAV ── */
-.nav{position:sticky;top:0;z-index:200;background:rgba(12,10,20,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;height:52px;gap:10px;overflow:hidden}
+.nav{position:sticky;top:0;z-index:200;background:rgba(245,243,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;height:52px;gap:10px;overflow:hidden}
 .nav-cat{font-size:20px;flex-shrink:0}
 .nav-title{font-size:14px;font-weight:500;color:var(--text);flex:1}
 .nav-words-btn{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
@@ -77,11 +77,12 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 
 /* ── WORD CHIPS ── */
 .a1-vocab{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.word-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;background:var(--p900);color:var(--p200);border:1px solid var(--p800);padding:5px 10px;border-radius:20px;cursor:pointer;transition:all .15s;font-family:var(--font-sans)}
-.word-chip:hover{background:var(--p800);border-color:var(--p600)}
-.word-chip.saved{background:#0a2e22;border-color:#1e6b3e;color:var(--green)}
+.word-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;background:transparent;color:var(--text3);border:1px solid var(--border2);padding:4px 9px;border-radius:20px;cursor:pointer;transition:all .15s;font-family:var(--font-sans)}
+.word-chip:hover{background:var(--bg3);color:var(--text2)}
+.word-chip.saved{background:transparent;border-color:var(--green);color:var(--green)}
 .word-chip-word{font-weight:500}
-.word-chip-action{font-size:14px;line-height:1;flex-shrink:0}
+.word-chip-action{font-size:13px;line-height:1;flex-shrink:0;color:var(--text3)}
+.word-chip.saved .word-chip-action{color:var(--green)}
 
 /* ── COMING SOON ── */
 .coming-soon{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
@@ -140,7 +141,7 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 .fc-inner.flipped{transform:rotateY(180deg)}
 .fc-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;position:absolute;inset:0;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
 .fc-face::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p700),var(--p400),var(--p700));border-radius:var(--radius) var(--radius) 0 0}
-.fc-back{transform:rotateY(180deg);background:var(--p900);border-color:var(--p700)}
+.fc-back{transform:rotateY(180deg);background:var(--p900);border-color:var(--p700);color:var(--p300)}
 .fc-word{font-size:22px;font-weight:600;color:var(--p200);margin-bottom:10px}
 .fc-def{font-size:14px;color:var(--text2);line-height:1.55}
 .fc-hint{font-size:11px;color:var(--text3);margin-top:8px;font-style:italic}
@@ -157,7 +158,54 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 /* ── DIVIDER ── */
 .div-accent{height:1px;background:linear-gradient(90deg,transparent,var(--p700),transparent)}
 
-/* ── FOOTER ── */
+/* ── TEKSTEN ── */
+.tekst-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:12px}
+.tekst-card:hover{border-color:var(--p400);background:var(--bg3)}
+.tekst-card-icon{font-size:22px;flex-shrink:0}
+.tekst-card-body{flex:1;min-width:0}
+.tekst-card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px}
+.tekst-card-meta{font-size:11px;color:var(--text3)}
+.tekst-card-arrow{color:var(--text3);font-size:18px;flex-shrink:0}
+/* reader */
+.reader-context{font-size:12px;color:var(--text3);font-style:italic;padding:12px 20px;border-bottom:1px solid var(--border);line-height:1.5}
+.reader-section-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--p500);padding:16px 20px 6px}
+.reader-para{font-size:15px;color:var(--text2);line-height:1.9;padding:0 20px 14px}
+.reader-heading{font-size:13px;font-weight:600;color:var(--p300);padding:10px 20px 4px;border-top:1px solid var(--border)}
+.reader-divider{height:1px;background:var(--border);margin:4px 20px 0}
+/* clickable sentence */
+.r-sent{display:inline;cursor:pointer;border-radius:3px;padding:1px 2px;transition:background .15s;line-height:1.9}
+.r-sent:hover{background:var(--p900)}
+.r-sent.open{background:var(--p900);color:var(--p300)}
+.r-sent-en{display:none;font-size:13px;color:var(--p300);font-style:italic;background:var(--p900);border-left:2px solid var(--p600);padding:6px 12px;border-radius:0 4px 4px 0;margin:4px 0 6px;line-height:1.55}
+.r-sent-en.show{display:block}
+/* questions */
+.reader-qs{padding:16px 20px;background:#fff;border-top:1px solid var(--border)}
+.reader-qs-title{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--p400);margin-bottom:12px}
+.reader-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.reader-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.reader-q-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+.reader-q-text{font-size:14px;font-weight:500;color:var(--text);line-height:1.5;flex:1}
+.reader-q-flag{font-size:17px;border:none;background:transparent;cursor:pointer;flex-shrink:0;padding:2px;line-height:1;transition:opacity .15s;margin-top:2px}
+.reader-q-flag:hover{opacity:.7}
+.reader-opt{font-size:13px;color:var(--text2);padding:6px 10px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg2);margin-bottom:5px;cursor:pointer;transition:all .15s;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.reader-opt:hover{border-color:var(--p500);background:var(--p900);color:var(--text)}
+.reader-opt.correct{background:var(--green-light);border-color:var(--green);color:var(--green)}
+.reader-opt.wrong{background:var(--accent2-light);border-color:var(--accent2);color:#e07070}
+.reader-opt-letter{font-family:var(--font-mono);font-size:11px;font-weight:500;flex-shrink:0;opacity:.6;margin-top:2px}
+.reader-en-block{display:none;background:var(--p900);border-left:2px solid var(--p600);border-radius:0 4px 4px 0;padding:8px 12px;margin-top:6px;font-size:12px;color:var(--p200);font-style:italic;line-height:1.6}
+.reader-en-block.show{display:block}
+.reader-en-q{margin-bottom:5px;font-weight:500;font-style:normal;color:var(--p300)}
+.reader-en-opt{display:flex;gap:6px;margin-bottom:3px}
+.reader-en-opt-letter{opacity:.5;font-family:var(--font-mono);font-size:11px;flex-shrink:0}
+.reader-feedback{font-size:12px;padding:8px 10px;border-radius:var(--radius-sm);margin-top:6px;display:none;line-height:1.5}
+.reader-feedback.show{display:block}
+.reader-feedback.correct{background:var(--green-light);color:var(--green);border:1px solid var(--green)}
+.reader-feedback.wrong{background:var(--accent2-light);color:var(--accent2);border:1px solid var(--accent2)}
+
+/* ── INLINE KEYWORDS ── */
+.kw-inline{font-weight:600;color:var(--p400);cursor:pointer;border-bottom:1.5px solid var(--border2);padding-bottom:1px;border-radius:2px;transition:opacity .15s}
+.kw-inline:hover{opacity:.75}
+.kw-star{font-size:11px;color:var(--p400);margin-left:1px;vertical-align:super}
 .footer{padding:22px 20px;text-align:center}
 .footer-cat{font-size:24px}
 </style>
@@ -168,8 +216,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 <nav class="nav">
   <span class="nav-cat">🐈‍⬛</span>
   <span class="nav-title">mijn dutch practice</span>
+  <button class="nav-words-btn" onclick="showPage('teksten')" style="margin-right:4px">📄 teksten</button>
   <button class="nav-words-btn" id="nav-words-btn" onclick="showPage('wordlist')">
-    📚 woordenlijst <span class="nav-count" id="nav-count">0</span>
+    📚 <span class="nav-count" id="nav-count">0</span>
   </button>
 </nav>
 
@@ -182,47 +231,18 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 
   <div class="div-accent"></div>
 
-  <!-- READING SECTION -->
+  <!-- SENTENCE SECTION -->
   <div class="tool-section">
     <div class="tool-header">
       <div class="tool-icon">📖</div>
       <div>
-        <div class="tool-title">lezen</div>
-        <div class="tool-sub">kies je niveau en oefen</div>
+        <div class="tool-title">zinnen per tekst</div>
+        <div class="tool-sub">één zin tegelijk in volgorde</div>
       </div>
     </div>
+    <select id="sent-text-selector" onchange="selectText(this.value)" style="width:100%;margin-bottom:10px;padding:8px 12px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font-sans);font-size:14px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236548d4%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>');background-repeat:no-repeat;background-position:right 10px center;background-size:16px;padding-right:32px"></select>
+    <div id="sent-card" class="a1-card">laden…</div>
 
-    <div class="level-tabs">
-      <button class="ltab active" data-level="A1" onclick="setLevel('A1')">A1</button>
-      <button class="ltab" data-level="A2" onclick="setLevel('A2')">A2</button>
-      <button class="ltab" data-level="B1" onclick="setLevel('B1')">B1</button>
-      <button class="ltab" data-level="B2" onclick="setLevel('B2')">B2</button>
-    </div>
-
-    <!-- A1 -->
-    <div id="panel-A1" class="level-panel">
-      <div class="level-hint">1–2 eenvoudige zinnen uit echte examenteksten 🐣 — tik een woord om op te slaan</div>
-      <div id="a1-card" class="a1-card">laden…</div>
-      <div style="display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap">
-        <button class="btn primary" onclick="nextA1()">↺ andere zin</button>
-        <button class="btn" id="a1-en-btn" onclick="toggleA1EN()">🇬🇧 toon vertaling</button>
-      </div>
-    </div>
-
-    <!-- A2 -->
-    <div id="panel-A2" class="level-panel" style="display:none">
-      <div class="coming-soon"><div class="emoji">🐱</div><p>A2 komt eraan — week 2!<br><strong>Eerst A1 afronden.</strong></p></div>
-    </div>
-
-    <!-- B1 -->
-    <div id="panel-B1" class="level-panel" style="display:none">
-      <div class="coming-soon"><div class="emoji">💪</div><p>B1 is het examenniveau — week 3.<br><strong>Bouw eerst op via A1 en A2.</strong></p></div>
-    </div>
-
-    <!-- B2 -->
-    <div id="panel-B2" class="level-panel" style="display:none">
-      <div class="coming-soon"><div class="emoji">🎯</div><p>B2 is moeilijker dan het examen — week 4.<br><strong>Voor extra uitdaging vlak voor de toets.</strong></p></div>
-    </div>
   </div>
 
   <!-- COUNTDOWN -->
@@ -257,7 +277,26 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
   <div id="wl-body"></div>
 </div>
 
-<!-- ══ PAGE: FLASHCARDS ══ -->
+<!-- ══ PAGE: TEKSTEN LIST ══ -->
+<div id="page-teksten" class="page">
+  <div class="wl-header">
+    <button class="wl-back" onclick="showPage('main')">← terug</button>
+    <div class="wl-title">examenteksten</div>
+  </div>
+  <div style="padding:12px 20px;font-size:12px;color:var(--text3);font-style:italic;border-bottom:1px solid var(--border)">
+    Officiële teksten uit het NT2-I examen 2025 — tik om te lezen
+  </div>
+  <div id="teksten-list" style="padding:14px 20px;display:flex;flex-direction:column;gap:8px"></div>
+</div>
+
+<!-- ══ PAGE: TEXT READER ══ -->
+<div id="page-reader" class="page">
+  <div class="wl-header">
+    <button class="wl-back" onclick="showPage('teksten')">← teksten</button>
+    <div class="wl-title" id="reader-title"></div>
+  </div>
+  <div id="reader-body" style="padding:0 0 40px"></div>
+</div>
 <div id="page-flashcards" class="page">
   <div class="wl-header">
     <button class="wl-back" onclick="showPage('wordlist')">← woordenlijst</button>
@@ -267,90 +306,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-hei
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════
-//  WORD BANK — pre-written, fully offline
-//  Each word has: word, dutchDef (Dutch explanation),
-//  english (translation), source (exam text)
-// ═══════════════════════════════════════════════════
-const WORD_DATA = {
-  'timmerman':  { wordtype:'noun (de ~)', def:'Iemand die als beroep werkt met hout. Hij maakt en repareert dingen zoals deuren, ramen, vloeren en meubels. Een timmerman werkt vaak in de bouw.', example:'Ruud werkt al jaren als timmerman in de bouw.', forms:[['singular','de timmerman'],['plural','de timmerlieden']], opposite:null, english:'carpenter', source:'Ruud wordt rij-instructeur' },
-  'zwaar':      { wordtype:'adjective / adverb', def:'1. Met veel gewicht; moeilijk om op te tillen. 2. Moeilijk voor het lichaam of de geest; vraagt veel kracht of energie.', example:'Het werk in de bouw is zwaar. Ruud is elke avond moe.', forms:[['comparative','zwaarder'],['superlative','het zwaarst']], opposite:'licht', english:'heavy / hard', source:'Ruud wordt rij-instructeur' },
-  'moe':        { wordtype:'adjective / adverb', def:'Je voelt je moe als je veel energie hebt gebruikt en je wilt rusten of slapen.', example:'Na een dag hard werken is Ruud erg moe.', forms:[['comparative','moeër / vermoeider'],['superlative','het moeëst / het vermoeist']], opposite:'uitgerust', english:'tired / exhausted', source:'Ruud wordt rij-instructeur' },
-  'autorijles': { wordtype:'noun (de ~)', def:'Een les waarbij iemand leert hoe je een auto bestuurt. De persoon die de les geeft, heet een rij-instructeur.', example:'Ruud wil autorijlessen geven bij een rijschool in zijn woonplaats.', forms:[['singular','de autorijles'],['plural','de autorijlessen']], opposite:null, english:'driving lesson', source:'Ruud wordt rij-instructeur' },
-  'moeilijk':   { wordtype:'adjective / adverb', def:'Iets is moeilijk als je er veel moeite voor moet doen of als je het niet goed begrijpt.', example:'"Ik ben het leren lang niet gewend," zegt Ruud, "maar ik vind het ook wel leuk."', forms:[['comparative','moeilijker'],['superlative','het moeilijkst']], opposite:'makkelijk / gemakkelijk', english:'difficult', source:'Ruud wordt rij-instructeur' },
-  'leuk':       { wordtype:'adjective / adverb', def:'Iets is leuk als je er plezier aan beleeft of als je het fijn vindt.', example:'Ruud vindt het leren moeilijk, maar ook wel leuk.', forms:[['comparative','leuker'],['superlative','het leukst']], opposite:'saai / vervelend', english:'fun / nice / enjoyable', source:'Ruud wordt rij-instructeur' },
-  'nieuw':      { wordtype:'adjective / adverb', def:'Iets is nieuw als het voor het eerst bestaat of als jij het voor het eerst doet of hebt.', example:'Ruud begint iets nieuws: hij gaat omscholen tot rij-instructeur.', forms:[['comparative','nieuwer'],['superlative','het nieuwst']], opposite:'oud', english:'new', source:'Ruud wordt rij-instructeur' },
-  'ziek':       { wordtype:'adjective / adverb', def:'Je bent ziek als er iets mis is met je lichaam of gezondheid, zoals koorts, pijn of een infectie.', example:'De collega van Ruud werd ziek en kon niet meer werken in de bouw.', forms:[['comparative','zieker'],['superlative','het ziekst']], opposite:'gezond', english:'ill / sick', source:'Ruud wordt rij-instructeur' },
-  'beslist':    { wordtype:'verb', def:'Een keuze maken tussen twee of meer mogelijkheden. Je bepaalt zelf wat je gaat doen.', example:'Ruud beslist zelf om te gaan omscholen. Hij wacht niet op anderen.', forms:[['present (ik)','ik beslis'],['present (hij)','hij beslist'],['past (hij)','hij besliste'],['perfect','heeft besloten']], opposite:null, english:'to decide', source:'Ruud wordt rij-instructeur' },
-  'wacht':      { wordtype:'verb', def:'Stilstaan of niets doen totdat iemand of iets komt, of totdat er iets gebeurt.', example:'Ruud wacht niet op anderen — hij neemt zelf het initiatief.', forms:[['present (ik)','ik wacht'],['present (hij)','hij wacht'],['past (hij)','hij wachtte'],['perfect','heeft gewacht']], opposite:null, english:'to wait', source:'Ruud wordt rij-instructeur' },
-  'rijschool':  { wordtype:'noun (de ~)', def:'Een school of bedrijf waar mensen leren autorijden. Je kunt er rijlessen nemen en examen doen voor je rijbewijs.', example:'Ruud gaat binnenkort werken bij rijschool Jeurissen in zijn woonplaats.', forms:[['singular','de rijschool'],['plural','de rijscholen']], opposite:null, english:'driving school', source:'Ruud wordt rij-instructeur' },
-  'begeleider': { wordtype:'noun (de ~)', def:'Iemand die een ander persoon helpt en ondersteunt bij een opleiding, traject of activiteit.', example:'Joke Hermans is de begeleider van Ruud tijdens zijn omscholing.', forms:[['singular','de begeleider'],['plural','de begeleiders'],['feminine','de begeleidster']], opposite:null, english:'supervisor / mentor', source:'Ruud wordt rij-instructeur' },
-  'omscholen':  { wordtype:'verb (separable)', def:'Een nieuw beroep of vak leren omdat je ander werk wilt of moet doen. Je stopt met je oude werk en volgt een nieuwe opleiding.', example:'Ruud besloot zichzelf om te scholen tot rij-instructeur.', forms:[['present (ik)','ik schol om'],['present (hij)','hij scholde om'],['past (hij)','hij scholde om'],['perfect','heeft omgeschoold']], opposite:null, english:'to retrain', source:'Ruud wordt rij-instructeur' },
-  'straat':     { wordtype:'noun (de ~)', def:'Een weg in een stad of dorp waar auto\'s en mensen gebruik van maken. Aan weerszijden staan vaak huizen of gebouwen.', example:'De straat in de buurt van Janine is veiliger geworden na de actie.', forms:[['singular','de straat'],['plural','de straten']], opposite:null, english:'street', source:'Buurtactie voor veiligheid' },
-  'veilig':     { wordtype:'adjective / adverb', def:'Er is geen gevaar. Je kunt iets doen zonder bang te hoeven zijn voor schade of letsel.', example:'De straat is veiliger geworden voor de kinderen die er spelen.', forms:[['comparative','veiliger'],['superlative','het veiligst']], opposite:'gevaarlijk / onveilig', english:'safe / secure', source:'Buurtactie voor veiligheid' },
-  'blij':       { wordtype:'adjective / adverb', def:'Je voelt je blij als er iets goeds is gebeurd of als iets is zoals je het wilt. Een positief gevoel.', example:'Janine is blij met het resultaat van de buurtactie.', forms:[['comparative','blijer'],['superlative','het blijst']], opposite:'verdrietig / ontevreden', english:'happy / glad', source:'Buurtactie voor veiligheid' },
-  'buurt':      { wordtype:'noun (de ~)', def:'De omgeving en straten rondom de plek waar je woont. De mensen die daar wonen, zijn je buren.', example:'De buurtbewoners werken samen om hun straat veiliger te maken.', forms:[['singular','de buurt'],['plural','de buurten']], opposite:null, english:'neighbourhood', source:'Buurtactie voor veiligheid' },
-  'smaller':    { wordtype:'adjective / adverb', def:'Met weinig breedte. Er is niet veel ruimte van de ene kant naar de andere kant.', example:'De straat is smaller geworden, waardoor parkeren lastiger is.', forms:[['base','smal'],['comparative','smaller'],['superlative','het smalst']], opposite:'breed', english:'narrower', source:'Buurtactie voor veiligheid' },
-  'parkeren':   { wordtype:'verb', def:'Een voertuig, zoals een auto of fiets, op een plek neerzetten en stilstaan, meestal voor een bepaalde tijd.', example:'Door de smallere straat is het moeilijker om te parkeren.', forms:[['present (ik)','ik parkeer'],['present (hij)','hij parkeert'],['past (hij)','hij parkeerde'],['perfect','heeft geparkeerd']], opposite:null, english:'to park', source:'Buurtactie voor veiligheid' },
-  'buren':      { wordtype:'noun (de ~)', def:'Iemand die naast jou of dichtbij jou woont, in hetzelfde gebouw of dezelfde straat.', example:'De buren werken samen om de buurt veiliger te maken.', forms:[['singular','de buur / buurman / buurvrouw'],['plural','de buren']], opposite:null, english:'neighbours', source:'Buurtactie voor veiligheid' },
-  'resultaat':  { wordtype:'noun (het ~)', def:'Wat er uitkomt of wat je bereikt hebt na een actie, inspanning of proces. Het eindresultaat.', example:'Janine is blij met het resultaat van de buurtactie, maar minder tevreden over de smallere straat.', forms:[['singular','het resultaat'],['plural','de resultaten']], opposite:null, english:'result / outcome', source:'Buurtactie voor veiligheid' },
-  'huilen':     { wordtype:'verb', def:'Tranen produceren uit je ogen, vaak als reactie op een sterk gevoel zoals verdriet, pijn of grote blijdschap.', example:'Mensen huilen vaker dan dieren, zowel van verdriet als van blijdschap.', forms:[['present (ik)','ik huil'],['present (hij)','hij huilt'],['past (hij)','hij huilde'],['perfect','heeft gehuild']], opposite:null, english:'to cry', source:'Een potje huilen' },
-  'tranen':     { wordtype:'noun (de ~)', def:'Een kleine druppel vocht die uit het oog komt als je huilt of als je oog geïrriteerd is.', example:'Er biggelde een traan over haar wang toen ze het nieuws hoorde.', forms:[['singular','de traan'],['plural','de tranen']], opposite:null, english:'tears', source:'Een potje huilen' },
-  'verdriet':   { wordtype:'noun (het ~, uncountable)', def:'Een pijnlijk gevoel dat je hebt als iets slechts is gebeurd, als je iemand mist of als je teleurgesteld bent.', example:'Ze had veel verdriet toen haar vader overleed.', forms:[['singular','het verdriet'],['plural','— (geen meervoud)']], opposite:'blijdschap / vreugde', english:'sadness / grief', source:'Een potje huilen' },
-  'blijdschap': { wordtype:'noun (de ~, uncountable)', def:'Een sterk gevoel van geluk en vreugde, als iets heel goed gaat of als er iets fijns is.', example:'De mensen huilden van blijdschap toen het team won.', forms:[['singular','de blijdschap'],['plural','— (geen meervoud)']], opposite:'verdriet', english:'joy / happiness', source:'Een potje huilen' },
-  'gevoelens':  { wordtype:'noun (het ~)', def:'Een emotie of indruk die je innerlijk ervaart, zoals blij, verdrietig, bang, boos of verliefd.', example:'Mensen huilen soms om gevoelens te uiten die ze niet in woorden kunnen zeggen.', forms:[['singular','het gevoel'],['plural','de gevoelens']], opposite:null, english:'feelings / emotions', source:'Een potje huilen' },
-  'inbreker':   { wordtype:'noun (de ~)', def:'Iemand die zonder toestemming een gebouw of woning binnengaat om dingen te stelen. Dit is een misdaad.', example:'Tea begon een buurt-WhatsApp nadat er bijna een inbreker bij haar thuis was geweest.', forms:[['singular','de inbreker'],['plural','de inbrekers'],['related verb','inbreken (brak in, heeft ingebroken)']], opposite:null, english:'burglar', source:'De buurt-whatsapp' },
-  'waarschuwen':{ wordtype:'verb', def:'Iemand van tevoren vertellen dat er gevaar is of dat er iets mis kan gaan, zodat hij of zij voorzichtig kan zijn of actie kan ondernemen.', example:'Via de buurt-WhatsApp waarschuwen bewoners elkaar als ze iets verdachts zien.', forms:[['present (ik)','ik waarschuw'],['present (hij)','hij waarschuwt'],['past (hij)','hij waarschuwde'],['perfect','heeft gewaarschuwd']], opposite:null, english:'to warn', source:'De buurt-whatsapp' },
-  'meedoen':    { wordtype:'verb (separable)', def:'Samen met anderen aan een activiteit of groep deelnemen.', example:'Bijna iedereen in de straat doet mee aan de buurt-WhatsApp-groep.', forms:[['present (ik)','ik doe mee'],['present (hij)','hij doet mee'],['past (hij)','hij deed mee'],['perfect','heeft meegedaan']], opposite:'afhaken', english:'to participate / join in', source:'De buurt-whatsapp' },
-  'veiliger':   { wordtype:'adjective / adverb', def:'Meer veilig dan voorheen. Er is minder gevaar dan eerder.', example:'Dankzij de buurt-WhatsApp is de buurt veiliger geworden.', forms:[['base','veilig'],['comparative','veiliger'],['superlative','het veiligst']], opposite:'gevaarlijker', english:'safer', source:'De buurt-whatsapp' },
-  'kennen':     { wordtype:'verb', def:'Weten wie iemand is of wat iets is, door eerder contact of ervaring. Let op: verschil met weten (een feit kennen).', example:'Dankzij de buurt-WhatsApp kennen de buren elkaar beter.', forms:[['present (ik)','ik ken'],['present (hij)','hij kent'],['past (hij)','hij kende'],['perfect','heeft gekend']], opposite:null, english:'to know (a person / place)', source:'De buurt-whatsapp' },
-  'verkoper':   { wordtype:'noun (de ~)', def:'Iemand die als beroep producten of diensten verkoopt aan klanten, in een winkel of bedrijf.', example:'Een goede verkoper luistert goed naar de klant en neemt klachten serieus.', forms:[['singular','de verkoper'],['plural','de verkopers'],['feminine','de verkoopster']], opposite:null, english:'salesperson / shop assistant', source:'Verkopen is een vak' },
-  'klanten':    { wordtype:'noun (de ~)', def:'Iemand die iets koopt of een dienst afneemt bij een winkel of bedrijf.', example:'De verkoper moet ontevreden klanten serieus nemen zodat ze tevreden vertrekken.', forms:[['singular','de klant'],['plural','de klanten']], opposite:null, english:'customers / clients', source:'Verkopen is een vak' },
-  'luistert':   { wordtype:'verb', def:'Bewust en aandachtig horen wat iemand zegt of wat er klinkt. Je geeft je volledige aandacht.', example:'De verkoper luistert goed naar de klacht en probeert te helpen.', forms:[['present (ik)','ik luister'],['present (hij)','hij luistert'],['past (hij)','hij luisterde'],['perfect','heeft geluisterd']], opposite:'negeren', english:'to listen', source:'Verkopen is een vak' },
-  'klacht':     { wordtype:'noun (de ~)', def:'Een officiële of informele uiting van ontevredenheid over een product, dienst of situatie.', example:'Een klant met een klacht moet serieus genomen worden, ook als de klacht onterecht lijkt.', forms:[['singular','de klacht'],['plural','de klachten'],['related verb','klagen (klaagde, heeft geklaagd)']], opposite:null, english:'complaint', source:'Verkopen is een vak' },
-  'oplossen':   { wordtype:'verb (separable)', def:'Een probleem of moeilijke situatie verhelpen zodat het niet meer bestaat.', example:'De verkoper probeert het probleem van de klant snel op te lossen.', forms:[['present (ik)','ik los op'],['present (hij)','hij lost op'],['past (hij)','hij loste op'],['perfect','heeft opgelost']], opposite:null, english:'to solve / to resolve', source:'Verkopen is een vak' },
-  'geduldig':   { wordtype:'adjective / adverb', def:'Rustig blijven wachten en niet snel geïrriteerd of boos worden, ook als iets lang duurt of moeilijk gaat.', example:'Een goede verkoper is geduldig, ook als een klant veel vragen stelt.', forms:[['comparative','geduldiger'],['superlative','het geduldigst'],['related noun','het geduld']], opposite:'ongeduldig', english:'patient', source:'Verkopen is een vak' },
-  'tevreden':   { wordtype:'adjective / adverb', def:'Blij met hoe iets is verlopen of hoe iets is. Je vindt het goed en wilt niets veranderen.', example:'De klant gaat tevreden weg nadat de verkoper haar goed heeft geholpen.', forms:[['comparative','tevredener'],['superlative','het meest tevreden']], opposite:'ontevreden', english:'satisfied / content', source:'Verkopen is een vak' },
-  'alarm':      { wordtype:'noun (het ~)', def:'Een systeem of geluid dat mensen waarschuwt voor gevaar, zoals brand of inbraak. Je moet dan direct reageren.', example:'Stacy hoort het alarm afgaan en weet dat iedereen het gebouw moet verlaten.', forms:[['singular','het alarm'],['plural','de alarmen'],['related verb','alarmeren (alarmeerde, heeft gealarmeerd)']], opposite:null, english:'alarm', source:'Informatie Vision College' },
-  'verzamelplaats':{ wordtype:'noun (de ~)', def:'Een aangewezen plek buiten een gebouw waar mensen naartoe gaan als er een alarm is of evacuatie plaatsvindt.', example:'Bij het brandalarm gaat iedereen naar de verzamelplaats achter het gebouw.', forms:[['singular','de verzamelplaats'],['plural','de verzamelplaatsen']], opposite:null, english:'assembly / meeting point', source:'Informatie Vision College' },
-  'conciërge':  { wordtype:'noun (de ~)', def:'Een medewerker die verantwoordelijk is voor het praktisch beheer van een gebouw, zoals een school of kantoor. Hij of zij helpt bij praktische problemen en houdt toezicht op de veiligheid.', example:'De conciërge weet precies wat je moet doen als het alarm afgaat.', forms:[['singular','de conciërge'],['plural','de conciërges']], opposite:null, english:'caretaker / janitor', source:'Informatie Vision College' },
-  'gids':       { wordtype:'noun (de ~)', def:'Iemand die anderen begeleidt en rondleidt op een bepaalde plek, zoals in de natuur, een museum of een stad. Hij of zij geeft uitleg en informatie.', example:'Rob de Vrijer werkt als gids in het Braziliaanse oerwoud.', forms:[['singular','de gids'],['plural','de gidsen'],['related verb','gidsen (gidste, heeft gegidst)']], opposite:null, english:'guide', source:'Rob de Vrijer — natuur' },
-  'natuur':     { wordtype:'noun (de ~, uncountable)', def:'Alles in de wereld dat niet door mensen is gemaakt: bomen, planten, dieren, rivieren, bergen en lucht.', example:'Studenten leren bij de opleiding hoe ze in de natuur kunnen overleven.', forms:[['singular','de natuur'],['plural','— (zelden gebruikt)']], opposite:'stad / bebouwing', english:'nature', source:'Rob de Vrijer — natuur' },
-  'leerzaam':   { wordtype:'adjective / adverb', def:'Iets is leerzaam als je er veel van leert. Het geeft je nieuwe kennis of vaardigheden.', example:'Het werk in de natuur is zwaar, maar ook ongelooflijk leerzaam, zegt Rob.', forms:[['comparative','leerzamer'],['superlative','het leerzaamst'],['related noun','de leerzaamheid']], opposite:'zinloos / nutteloos', english:'educational / instructive', source:'Rob de Vrijer — natuur' },
-};
+const WORD_DATA = JSON.parse('{"timmerman": {"wordtype": "noun (de ~)", "def": "Iemand die als beroep werkt met hout. Hij maakt en repareert dingen zoals deuren, ramen, vloeren en meubels.", "example": "Ruud werkt al jaren als timmerman in de bouw.", "forms": [["singular", "de timmerman"], ["plural", "de timmerlieden"]], "opposite": null, "english": "carpenter", "source": "Ruud wordt rij-instructeur"}, "zwaar": {"wordtype": "adjective / adverb", "def": "1. Met veel gewicht; moeilijk om op te tillen. 2. Moeilijk voor het lichaam of de geest; vraagt veel kracht of energie.", "example": "Het werk in de bouw is zwaar. Ruud is elke avond moe.", "forms": [["comparative", "zwaarder"], ["superlative", "het zwaarst"]], "opposite": "licht", "english": "heavy / hard", "source": "Ruud wordt rij-instructeur"}, "moe": {"wordtype": "adjective / adverb", "def": "Je voelt je moe als je veel energie hebt gebruikt en je wilt rusten of slapen.", "example": "Na een dag hard werken is Ruud erg moe.", "forms": [["comparative", "vermoeider"], ["superlative", "het meest vermoeid"]], "opposite": "uitgerust", "english": "tired / exhausted", "source": "Ruud wordt rij-instructeur"}, "autorijles": {"wordtype": "noun (de ~)", "def": "Een les waarbij iemand leert hoe je een auto bestuurt. De persoon die de les geeft, heet een rij-instructeur.", "example": "Ruud wil autorijlessen geven bij een rijschool in zijn woonplaats.", "forms": [["singular", "de autorijles"], ["plural", "de autorijlessen"]], "opposite": null, "english": "driving lesson", "source": "Ruud wordt rij-instructeur"}, "moeilijk": {"wordtype": "adjective / adverb", "def": "Iets is moeilijk als je er veel moeite voor moet doen of als je het niet goed begrijpt.", "example": "Ik ben het leren lang niet gewend, maar ik vind het ook wel leuk.", "forms": [["comparative", "moeilijker"], ["superlative", "het moeilijkst"]], "opposite": "makkelijk", "english": "difficult", "source": "Ruud wordt rij-instructeur"}, "leuk": {"wordtype": "adjective / adverb", "def": "Iets is leuk als je er plezier aan beleeft of als je het fijn vindt.", "example": "Ruud vindt het leren moeilijk, maar ook wel leuk.", "forms": [["comparative", "leuker"], ["superlative", "het leukst"]], "opposite": "saai / vervelend", "english": "fun / nice", "source": "Ruud wordt rij-instructeur"}, "nieuw": {"wordtype": "adjective / adverb", "def": "Iets is nieuw als het voor het eerst bestaat of als jij het voor het eerst doet of hebt.", "example": "Ruud begint iets nieuws: hij gaat omscholen tot rij-instructeur.", "forms": [["comparative", "nieuwer"], ["superlative", "het nieuwst"]], "opposite": "oud", "english": "new", "source": "Ruud wordt rij-instructeur"}, "ziek": {"wordtype": "adjective / adverb", "def": "Je bent ziek als er iets mis is met je lichaam of gezondheid, zoals koorts, pijn of een infectie.", "example": "De collega van Ruud werd ziek en kon niet meer werken in de bouw.", "forms": [["comparative", "zieker"], ["superlative", "het ziekst"]], "opposite": "gezond", "english": "ill / sick", "source": "Ruud wordt rij-instructeur"}, "beslist": {"wordtype": "verb", "def": "Een keuze maken tussen twee of meer mogelijkheden. Je bepaalt zelf wat je gaat doen.", "example": "Ruud beslist zelf om te gaan omscholen. Hij wacht niet op anderen.", "forms": [["present (ik)", "ik beslis"], ["present (hij)", "hij beslist"], ["past (hij)", "hij besliste"], ["perfect", "heeft besloten"]], "opposite": null, "english": "to decide", "source": "Ruud wordt rij-instructeur"}, "wacht": {"wordtype": "verb", "def": "Stilstaan of niets doen totdat iemand of iets komt, of totdat er iets gebeurt.", "example": "Ruud wacht niet op anderen — hij neemt zelf het initiatief.", "forms": [["present (ik)", "ik wacht"], ["present (hij)", "hij wacht"], ["past (hij)", "hij wachtte"], ["perfect", "heeft gewacht"]], "opposite": null, "english": "to wait", "source": "Ruud wordt rij-instructeur"}, "rijschool": {"wordtype": "noun (de ~)", "def": "Een school of bedrijf waar mensen leren autorijden. Je kunt er rijlessen nemen en examen doen voor je rijbewijs.", "example": "Ruud gaat binnenkort werken bij rijschool Jeurissen in zijn woonplaats.", "forms": [["singular", "de rijschool"], ["plural", "de rijscholen"]], "opposite": null, "english": "driving school", "source": "Ruud wordt rij-instructeur"}, "begeleider": {"wordtype": "noun (de ~)", "def": "Iemand die een ander persoon helpt en ondersteunt bij een opleiding, traject of activiteit.", "example": "Joke Hermans is de begeleider van Ruud tijdens zijn omscholing.", "forms": [["singular", "de begeleider"], ["plural", "de begeleiders"], ["feminine", "de begeleidster"]], "opposite": null, "english": "supervisor / mentor", "source": "Ruud wordt rij-instructeur"}, "omscholen": {"wordtype": "verb (separable)", "def": "Een nieuw beroep of vak leren omdat je ander werk wilt of moet doen.", "example": "Ruud besloot zichzelf om te scholen tot rij-instructeur.", "forms": [["present (ik)", "ik schol om"], ["present (hij)", "hij scholde om"], ["past (hij)", "hij scholde om"], ["perfect", "heeft omgeschoold"]], "opposite": null, "english": "to retrain", "source": "Ruud wordt rij-instructeur"}, "straat": {"wordtype": "noun (de ~)", "def": "Een weg in een stad of dorp waar mensen en voertuigen gebruik van maken.", "example": "De straat in de buurt van Janine is veiliger geworden na de actie.", "forms": [["singular", "de straat"], ["plural", "de straten"]], "opposite": null, "english": "street", "source": "Buurtactie voor veiligheid"}, "veilig": {"wordtype": "adjective / adverb", "def": "Er is geen gevaar. Je kunt iets doen zonder bang te hoeven zijn voor schade of letsel.", "example": "De straat is veiliger geworden voor de kinderen die er spelen.", "forms": [["comparative", "veiliger"], ["superlative", "het veiligst"]], "opposite": "gevaarlijk / onveilig", "english": "safe / secure", "source": "Buurtactie voor veiligheid"}, "blij": {"wordtype": "adjective / adverb", "def": "Je voelt je blij als er iets goeds is gebeurd of als iets is zoals je het wilt.", "example": "Janine is blij met het resultaat van de buurtactie.", "forms": [["comparative", "blijer"], ["superlative", "het blijst"]], "opposite": "verdrietig / ontevreden", "english": "happy / glad", "source": "Buurtactie voor veiligheid"}, "buurt": {"wordtype": "noun (de ~)", "def": "De omgeving en straten rondom de plek waar je woont. De mensen die daar wonen, zijn je buren.", "example": "De buurtbewoners werken samen om hun straat veiliger te maken.", "forms": [["singular", "de buurt"], ["plural", "de buurten"]], "opposite": null, "english": "neighbourhood", "source": "Buurtactie voor veiligheid"}, "smaller": {"wordtype": "adjective / adverb", "def": "Met weinig breedte. Er is niet veel ruimte van de ene kant naar de andere kant.", "example": "De straat is smaller geworden, waardoor parkeren lastiger is.", "forms": [["base", "smal"], ["comparative", "smaller"], ["superlative", "het smalst"]], "opposite": "breed", "english": "narrower", "source": "Buurtactie voor veiligheid"}, "parkeren": {"wordtype": "verb", "def": "Een voertuig op een plek neerzetten en stilstaan, meestal voor een bepaalde tijd.", "example": "Door de smallere straat is het moeilijker om te parkeren.", "forms": [["present (ik)", "ik parkeer"], ["present (hij)", "hij parkeert"], ["past (hij)", "hij parkeerde"], ["perfect", "heeft geparkeerd"]], "opposite": null, "english": "to park", "source": "Buurtactie voor veiligheid"}, "buren": {"wordtype": "noun (de ~)", "def": "Iemand die naast jou of dichtbij jou woont, in hetzelfde gebouw of dezelfde straat.", "example": "De buren werken samen om de buurt veiliger te maken.", "forms": [["singular", "de buur / buurman / buurvrouw"], ["plural", "de buren"]], "opposite": null, "english": "neighbours", "source": "Buurtactie voor veiligheid"}, "resultaat": {"wordtype": "noun (het ~)", "def": "Wat er uitkomt of wat je bereikt hebt na een actie, inspanning of proces.", "example": "Janine is blij met het resultaat van de buurtactie.", "forms": [["singular", "het resultaat"], ["plural", "de resultaten"]], "opposite": null, "english": "result / outcome", "source": "Buurtactie voor veiligheid"}, "huilen": {"wordtype": "verb", "def": "Tranen produceren uit je ogen, vaak als reactie op een sterk gevoel zoals verdriet of blijdschap.", "example": "Mensen huilen vaker dan dieren, zowel van verdriet als van blijdschap.", "forms": [["present (ik)", "ik huil"], ["present (hij)", "hij huilt"], ["past (hij)", "hij huilde"], ["perfect", "heeft gehuild"]], "opposite": null, "english": "to cry", "source": "Een potje huilen"}, "tranen": {"wordtype": "noun (de ~)", "def": "Een kleine druppel vocht die uit het oog komt als je huilt of als je oog geïrriteerd is.", "example": "Er biggelde een traan over haar wang toen ze het nieuws hoorde.", "forms": [["singular", "de traan"], ["plural", "de tranen"]], "opposite": null, "english": "tears", "source": "Een potje huilen"}, "verdriet": {"wordtype": "noun (het ~, uncountable)", "def": "Een pijnlijk gevoel dat je hebt als iets slechts is gebeurd, als je iemand mist of als je teleurgesteld bent.", "example": "Ze had veel verdriet toen haar vader overleed.", "forms": [["singular", "het verdriet"], ["plural", "— (geen meervoud)"]], "opposite": "blijdschap / vreugde", "english": "sadness / grief", "source": "Een potje huilen"}, "blijdschap": {"wordtype": "noun (de ~, uncountable)", "def": "Een sterk gevoel van geluk en vreugde, als iets heel goed gaat of als er iets fijns is.", "example": "De mensen huilden van blijdschap toen het team won.", "forms": [["singular", "de blijdschap"], ["plural", "— (geen meervoud)"]], "opposite": "verdriet", "english": "joy / happiness", "source": "Een potje huilen"}, "gevoelens": {"wordtype": "noun (het ~)", "def": "Een emotie of indruk die je innerlijk ervaart, zoals blij, verdrietig, bang, boos of verliefd.", "example": "Mensen huilen soms om gevoelens te uiten die ze niet in woorden kunnen zeggen.", "forms": [["singular", "het gevoel"], ["plural", "de gevoelens"]], "opposite": null, "english": "feelings / emotions", "source": "Een potje huilen"}, "inbreker": {"wordtype": "noun (de ~)", "def": "Iemand die zonder toestemming een gebouw of woning binnengaat om dingen te stelen.", "example": "Tea begon een buurt-WhatsApp nadat er bijna een inbreker bij haar thuis was geweest.", "forms": [["singular", "de inbreker"], ["plural", "de inbrekers"], ["related verb", "inbreken (brak in, heeft ingebroken)"]], "opposite": null, "english": "burglar", "source": "De buurt-whatsapp"}, "waarschuwen": {"wordtype": "verb", "def": "Iemand van tevoren vertellen dat er gevaar is of dat er iets mis kan gaan.", "example": "Via de buurt-WhatsApp waarschuwen bewoners elkaar als ze iets verdachts zien.", "forms": [["present (ik)", "ik waarschuw"], ["present (hij)", "hij waarschuwt"], ["past (hij)", "hij waarschuwde"], ["perfect", "heeft gewaarschuwd"]], "opposite": null, "english": "to warn", "source": "De buurt-whatsapp"}, "meedoen": {"wordtype": "verb (separable)", "def": "Samen met anderen aan een activiteit of groep deelnemen.", "example": "Bijna iedereen in de straat doet mee aan de buurt-WhatsApp-groep.", "forms": [["present (ik)", "ik doe mee"], ["present (hij)", "hij doet mee"], ["past (hij)", "hij deed mee"], ["perfect", "heeft meegedaan"]], "opposite": "afhaken", "english": "to participate / join in", "source": "De buurt-whatsapp"}, "veiliger": {"wordtype": "adjective / adverb", "def": "Meer veilig dan voorheen. Er is minder gevaar dan eerder.", "example": "Dankzij de buurt-WhatsApp is de buurt veiliger geworden.", "forms": [["base", "veilig"], ["comparative", "veiliger"], ["superlative", "het veiligst"]], "opposite": "gevaarlijker", "english": "safer", "source": "De buurt-whatsapp"}, "kennen": {"wordtype": "verb", "def": "Weten wie iemand is of wat iets is, door eerder contact of ervaring.", "example": "Dankzij de buurt-WhatsApp kennen de buren elkaar beter.", "forms": [["present (ik)", "ik ken"], ["present (hij)", "hij kent"], ["past (hij)", "hij kende"], ["perfect", "heeft gekend"]], "opposite": null, "english": "to know (a person / place)", "source": "De buurt-whatsapp"}, "verkoper": {"wordtype": "noun (de ~)", "def": "Iemand die als beroep producten of diensten verkoopt aan klanten, in een winkel of bedrijf.", "example": "Een goede verkoper luistert goed naar de klant en neemt klachten serieus.", "forms": [["singular", "de verkoper"], ["plural", "de verkopers"], ["feminine", "de verkoopster"]], "opposite": null, "english": "salesperson / shop assistant", "source": "Verkopen is een vak"}, "klanten": {"wordtype": "noun (de ~)", "def": "Iemand die iets koopt of een dienst afneemt bij een winkel of bedrijf.", "example": "De verkoper moet ontevreden klanten serieus nemen zodat ze tevreden vertrekken.", "forms": [["singular", "de klant"], ["plural", "de klanten"]], "opposite": null, "english": "customers / clients", "source": "Verkopen is een vak"}, "luistert": {"wordtype": "verb", "def": "Bewust en aandachtig horen wat iemand zegt. Je geeft je volledige aandacht.", "example": "De verkoper luistert goed naar de klacht en probeert te helpen.", "forms": [["present (ik)", "ik luister"], ["present (hij)", "hij luistert"], ["past (hij)", "hij luisterde"], ["perfect", "heeft geluisterd"]], "opposite": "negeren", "english": "to listen", "source": "Verkopen is een vak"}, "klacht": {"wordtype": "noun (de ~)", "def": "Een officiële of informele uiting van ontevredenheid over een product, dienst of situatie.", "example": "Een klant met een klacht moet serieus genomen worden.", "forms": [["singular", "de klacht"], ["plural", "de klachten"], ["related verb", "klagen (klaagde, heeft geklaagd)"]], "opposite": null, "english": "complaint", "source": "Verkopen is een vak"}, "oplossen": {"wordtype": "verb (separable)", "def": "Een probleem of moeilijke situatie verhelpen zodat het niet meer bestaat.", "example": "De verkoper probeert het probleem van de klant snel op te lossen.", "forms": [["present (ik)", "ik los op"], ["present (hij)", "hij lost op"], ["past (hij)", "hij loste op"], ["perfect", "heeft opgelost"]], "opposite": null, "english": "to solve / to resolve", "source": "Verkopen is een vak"}, "geduldig": {"wordtype": "adjective / adverb", "def": "Rustig blijven wachten en niet snel geïrriteerd of boos worden.", "example": "Een goede verkoper is geduldig, ook als een klant veel vragen stelt.", "forms": [["comparative", "geduldiger"], ["superlative", "het geduldigst"], ["related noun", "het geduld"]], "opposite": "ongeduldig", "english": "patient", "source": "Verkopen is een vak"}, "tevreden": {"wordtype": "adjective / adverb", "def": "Blij met hoe iets is verlopen of hoe iets is. Je vindt het goed en wilt niets veranderen.", "example": "De klant gaat tevreden weg nadat de verkoper haar goed heeft geholpen.", "forms": [["comparative", "tevredener"], ["superlative", "het meest tevreden"]], "opposite": "ontevreden", "english": "satisfied / content", "source": "Verkopen is een vak"}, "alarm": {"wordtype": "noun (het ~)", "def": "Een systeem of geluid dat mensen waarschuwt voor gevaar, zoals brand of inbraak.", "example": "Stacy hoort het alarm afgaan en weet dat iedereen het gebouw moet verlaten.", "forms": [["singular", "het alarm"], ["plural", "de alarmen"]], "opposite": null, "english": "alarm", "source": "Informatie Vision College"}, "verzamelplaats": {"wordtype": "noun (de ~)", "def": "Een aangewezen plek buiten een gebouw waar mensen naartoe gaan als er een alarm is of evacuatie plaatsvindt.", "example": "Bij het brandalarm gaat iedereen naar de verzamelplaats achter het gebouw.", "forms": [["singular", "de verzamelplaats"], ["plural", "de verzamelplaatsen"]], "opposite": null, "english": "assembly point / meeting point", "source": "Informatie Vision College"}, "concierge": {"wordtype": "noun (de ~)", "def": "Een medewerker die verantwoordelijk is voor het praktisch beheer van een gebouw.", "example": "De concierge weet precies wat je moet doen als het alarm afgaat.", "forms": [["singular", "de concierge"], ["plural", "de concierges"]], "opposite": null, "english": "caretaker / janitor", "source": "Informatie Vision College"}, "gids": {"wordtype": "noun (de ~)", "def": "Iemand die anderen begeleidt en rondleidt op een bepaalde plek. Hij of zij geeft uitleg en informatie.", "example": "Rob de Vrijer werkt als gids in het Braziliaanse oerwoud.", "forms": [["singular", "de gids"], ["plural", "de gidsen"]], "opposite": null, "english": "guide", "source": "Rob de Vrijer — natuur"}, "natuur": {"wordtype": "noun (de ~, uncountable)", "def": "Alles in de wereld dat niet door mensen is gemaakt: bomen, planten, dieren, rivieren, bergen en lucht.", "example": "Studenten leren bij de opleiding hoe ze in de natuur kunnen overleven.", "forms": [["singular", "de natuur"], ["plural", "— (zelden gebruikt)"]], "opposite": "stad / bebouwing", "english": "nature", "source": "Rob de Vrijer — natuur"}, "leerzaam": {"wordtype": "adjective / adverb", "def": "Iets is leerzaam als je er veel van leert. Het geeft je nieuwe kennis of vaardigheden.", "example": "Het werk in de natuur is zwaar, maar ook ongelooflijk leerzaam, zegt Rob.", "forms": [["comparative", "leerzamer"], ["superlative", "het leerzaamst"]], "opposite": "zinloos / nutteloos", "english": "educational / instructive", "source": "Rob de Vrijer — natuur"}, "bouwsector": {"wordtype": "noun (de ~, uncountable)", "def": "De sector van de economie waar gebouwen, bruggen en wegen worden gemaakt.", "example": "Ruud is al sinds zijn 17e werkzaam in de bouwsector.", "forms": [["singular", "de bouwsector"], ["plural", "— (zelden gebruikt)"]], "opposite": null, "english": "construction sector", "source": "Ruud wordt rij-instructeur"}, "beroep": {"wordtype": "noun (het ~)", "def": "Het werk dat iemand doet om geld te verdienen.", "example": "Zijn beroep als timmerman heeft hij 45 jaar uitgevoerd.", "forms": [["singular", "het beroep"], ["plural", "de beroepen"]], "opposite": null, "english": "profession / occupation", "source": "Ruud wordt rij-instructeur"}, "werkgever": {"wordtype": "noun (de ~)", "def": "Een persoon of bedrijf die mensen betaalt om voor hem of haar te werken.", "example": "Binnenkort stopt Ruud bij zijn huidige werkgever Jeurissen.", "forms": [["singular", "de werkgever"], ["plural", "de werkgevers"]], "opposite": "werknemer", "english": "employer", "source": "Ruud wordt rij-instructeur"}, "opleiding": {"wordtype": "noun (de ~)", "def": "Een studie of cursus waarbij je kennis en vaardigheden leert voor een bepaald beroep of vak.", "example": "Ruud volgt een opleiding tot rij-instructeur.", "forms": [["singular", "de opleiding"], ["plural", "de opleidingen"]], "opposite": null, "english": "training / education / course", "source": "Ruud wordt rij-instructeur"}, "rij-instructeur": {"wordtype": "noun (de ~)", "def": "Iemand die les geeft in het autorijden. Hij of zij zit naast de leerling in de auto en geeft aanwijzingen.", "example": "Ruud wil binnenkort werken als rij-instructeur.", "forms": [["singular", "de rij-instructeur"], ["plural", "de rij-instructeurs"]], "opposite": null, "english": "driving instructor", "source": "Ruud wordt rij-instructeur"}, "omslag": {"wordtype": "noun (de ~)", "def": "Een grote verandering van richting of situatie. Iets gaat heel anders dan voorheen.", "example": "Een hele omslag op die leeftijd, maar voor Ruud was er geen andere optie.", "forms": [["singular", "de omslag"], ["plural", "de omslagen"]], "opposite": null, "english": "big change / turnaround", "source": "Ruud wordt rij-instructeur"}, "ziektewet": {"wordtype": "noun (de ~, uncountable)", "def": "Een Nederlandse wet die regelt dat werknemers doorbetaald worden als ze ziek zijn en niet kunnen werken.", "example": "Op dit moment zit ik in de ziektewet, ik heb last van mijn botten.", "forms": [["singular", "de ziektewet"], ["plural", "— (geen meervoud)"]], "opposite": null, "english": "sick leave / sickness benefit", "source": "Ruud wordt rij-instructeur"}, "omscholing": {"wordtype": "noun (de ~)", "def": "Het proces waarbij iemand een nieuw beroep leert, omdat hij of zij het oude werk niet meer kan of wil doen.", "example": "Ruud kreeg bij zijn omscholing hulp van werkgever Jeurissen en adviescentrum Valedo.", "forms": [["singular", "de omscholing"], ["plural", "de omscholingen"]], "opposite": null, "english": "retraining", "source": "Ruud wordt rij-instructeur"}, "adviescentrum": {"wordtype": "noun (het ~)", "def": "Een organisatie die mensen advies en begeleiding geeft bij problemen op het gebied van werk of loopbaan.", "example": "Ruud kreeg hulp van adviescentrum Valedo bij zijn omscholing.", "forms": [["singular", "het adviescentrum"], ["plural", "de adviescentra"]], "opposite": null, "english": "advisory centre", "source": "Ruud wordt rij-instructeur"}, "initiatief": {"wordtype": "noun (het ~)", "def": "De eerste stap nemen om iets te doen of te beginnen, zonder dat iemand anders dat vraagt.", "example": "Ruud nam het initiatief tot omscholing zelf.", "forms": [["singular", "het initiatief"], ["plural", "de initiatieven"]], "opposite": null, "english": "initiative", "source": "Ruud wordt rij-instructeur"}, "advertentie": {"wordtype": "noun (de ~)", "def": "Een bericht waarbij een bedrijf of persoon iets aanbiedt of vraagt, zoals een baan of een product.", "example": "Ik las op internet een advertentie voor een opleiding tot rij-instructeur.", "forms": [["singular", "de advertentie"], ["plural", "de advertenties"]], "opposite": null, "english": "advertisement", "source": "Ruud wordt rij-instructeur"}, "cursus": {"wordtype": "noun (de ~)", "def": "Een kortere opleiding of training waarbij je iets specifieks leert, meestal in een groep.", "example": "De cursus tot rij-instructeur startte begin dit jaar.", "forms": [["singular", "de cursus"], ["plural", "de cursussen"]], "opposite": null, "english": "course", "source": "Ruud wordt rij-instructeur"}, "personeelsadviseur": {"wordtype": "noun (de ~)", "def": "Iemand die werknemers en werkgevers advies geeft over werk en loopbaan.", "example": "Joke Hermans is personeelsadviseur bij Jeurissen.", "forms": [["singular", "de personeelsadviseur"], ["plural", "de personeelsadviseurs"]], "opposite": null, "english": "HR adviser", "source": "Ruud wordt rij-instructeur"}, "mededeling": {"wordtype": "noun (de ~)", "def": "Een officieel bericht waarbij je iemand iets laat weten over een beslissing.", "example": "Ruud ging in gesprek met Joke met de mededeling dat hij binnenkort wil stoppen.", "forms": [["singular", "de mededeling"], ["plural", "de mededelingen"]], "opposite": null, "english": "announcement / notification", "source": "Ruud wordt rij-instructeur"}, "vervroegd pensioen": {"wordtype": "noun phrase (het ~)", "def": "Met pensioen gaan voordat de officiele pensioenleeftijd is bereikt. Je stopt eerder met werken.", "example": "Ik ga dan met vervroegd pensioen, maar ik ben geen stilzitter.", "forms": [["singular", "het vervroegd pensioen"], ["plural", "—"]], "opposite": null, "english": "early retirement", "source": "Ruud wordt rij-instructeur"}, "stilzitter": {"wordtype": "noun (de ~)", "def": "Iemand die niets doet, geen actie onderneemt en gewoon afwacht. Een stilzitter is passief.", "example": "Ik ben geen stilzitter, dus mijn baan als rij-instructeur doe ik er gewoon naast.", "forms": [["singular", "de stilzitter"], ["plural", "de stilzitters"]], "opposite": "doener / actief iemand", "english": "passive person / someone who sits still", "source": "Ruud wordt rij-instructeur"}, "regie": {"wordtype": "noun (de ~, uncountable)", "def": "De controle en leiding over iets, vooral over je eigen leven of loopbaan. Regie pakken betekent zelf beslissingen nemen.", "example": "Joke noemt Ruud een voorbeeld van iemand die regie pakt op zijn loopbaan.", "forms": [["singular", "de regie"], ["plural", "—"]], "opposite": null, "english": "control / direction", "source": "Ruud wordt rij-instructeur"}, "loopbaan": {"wordtype": "noun (de ~)", "def": "De reeks van banen en functies die iemand in zijn of haar werkende leven heeft. Je hele carriere bij elkaar.", "example": "Joke noemt Ruud een voorbeeld van iemand die regie pakt op zijn loopbaan.", "forms": [["singular", "de loopbaan"], ["plural", "de loopbanen"]], "opposite": null, "english": "career", "source": "Ruud wordt rij-instructeur"}, "betrokken": {"wordtype": "adjective", "def": "Erbij gehaald of meegenomen in een proces of gesprek.", "example": "Ondanks dat Ruud ons wat later in het proces heeft betrokken, konden we nog helpen.", "forms": [["comparative", "meer betrokken"], ["superlative", "het meest betrokken"]], "opposite": "buitengesloten", "english": "involved", "source": "Ruud wordt rij-instructeur"}, "traject": {"wordtype": "noun (het ~)", "def": "Een plan of programma met stappen om een doel te bereiken, bijvoorbeeld bij omscholing of begeleiding.", "example": "We hebben alsnog een traject in gang kunnen zetten voor Ruud.", "forms": [["singular", "het traject"], ["plural", "de trajecten"]], "opposite": null, "english": "trajectory / programme / path", "source": "Ruud wordt rij-instructeur"}, "geadviseerd": {"wordtype": "verb (past participle)", "def": "Advies gekregen hebben van iemand die je vertelt wat het beste is om te doen.", "example": "Valedo heeft mij goed geadviseerd over mijn omscholing.", "forms": [["infinitive", "adviseren"], ["present (hij)", "hij adviseert"], ["past (hij)", "hij adviseerde"], ["perfect", "heeft geadviseerd"]], "opposite": null, "english": "advised", "source": "Ruud wordt rij-instructeur"}, "meegenomen": {"wordtype": "expression", "def": "Mooi meegenomen betekent: iets extra positiefs dat je niet had verwacht maar wel fijn is.", "example": "Ik krijg een deel van de opleiding betaald en dat is mooi meegenomen.", "forms": [], "opposite": null, "english": "a nice bonus / a welcome extra", "source": "Ruud wordt rij-instructeur"}, "examendagen": {"wordtype": "noun (de ~)", "def": "De dag of dagen waarop een officieel examen plaatsvindt.", "example": "Ruud krijgt van zijn werkgever ook de examendagen cadeau.", "forms": [["singular", "de examendag"], ["plural", "de examendagen"]], "opposite": null, "english": "exam days", "source": "Ruud wordt rij-instructeur"}, "gunnen": {"wordtype": "verb", "def": "Iemand iets toewensen of hem of haar iets geven zonder er jaloers op te zijn.", "example": "Wij gunnen Ruud nog een plezierig werkzaam leven.", "forms": [["present (ik)", "ik gun"], ["present (hij)", "hij gunt"], ["past (hij)", "hij gunde"], ["perfect", "heeft gegund"]], "opposite": "misgunnen", "english": "to wish someone well / to grant", "source": "Ruud wordt rij-instructeur"}, "werkzaam": {"wordtype": "adjective", "def": "Actief aan het werk. Werkzaam zijn betekent dat je werkt of beroepsmatig actief bent.", "example": "Ruud is al sinds zijn 17e werkzaam in de bouwsector.", "forms": [["comparative", "meer werkzaam"], ["superlative", "het meest werkzaam"]], "opposite": "werkloos", "english": "employed / working", "source": "Ruud wordt rij-instructeur"}, "sector": {"wordtype": "noun (de ~)", "def": "Een deel van de economie of de maatschappij met gelijksoortige bedrijven of activiteiten.", "example": "Ruud vindt dat mensen in de sector regelmatig medisch onderzocht moeten worden.", "forms": [["singular", "de sector"], ["plural", "de sectoren"]], "opposite": null, "english": "sector", "source": "Ruud wordt rij-instructeur"}, "adviesgesprek": {"wordtype": "noun (het ~)", "def": "Een gesprek met een adviseur waarbij je advies krijgt over een beslissing in je werk of leven.", "example": "Het adviesgesprek is volgens Ruud een goede aanvulling op het medisch onderzoek.", "forms": [["singular", "het adviesgesprek"], ["plural", "de adviesgesprekken"]], "opposite": null, "english": "advice interview / counselling session", "source": "Ruud wordt rij-instructeur"}, "aanvulling": {"wordtype": "noun (de ~)", "def": "Iets wat je toevoegt aan iets anders om het completer of beter te maken.", "example": "Het adviesgesprek is een goede aanvulling op het medisch onderzoek.", "forms": [["singular", "de aanvulling"], ["plural", "de aanvullingen"]], "opposite": null, "english": "supplement / addition", "source": "Ruud wordt rij-instructeur"}, "bewust": {"wordtype": "adjective / adverb", "def": "Je weet van iets, je bent je ervan bewust. Je hebt het gemerkt of nagedacht over iets.", "example": "Hoe eerder je je ervan bewust bent, hoe beter.", "forms": [["comparative", "meer bewust"], ["superlative", "het meest bewust"]], "opposite": "onbewust", "english": "aware / conscious", "source": "Ruud wordt rij-instructeur"}, "collega": {"wordtype": "noun (de ~)", "def": "Iemand die bij hetzelfde bedrijf of dezelfde organisatie werkt als jij.", "example": "Ik heb een collega van 35 jaar die al geopereerd is aan zijn rug.", "forms": [["singular", "de collega"], ["plural", "de collega\'s"]], "opposite": null, "english": "colleague", "source": "Ruud wordt rij-instructeur"}, "geopereerd": {"wordtype": "verb (past participle)", "def": "Een operatie ondergaan hebben. Een chirurg heeft dan iets in je lichaam gerepareerd of verwijderd.", "example": "Mijn collega van 35 jaar is al geopereerd aan zijn rug.", "forms": [["infinitive", "opereren"], ["present (hij)", "hij opereert"], ["past (hij)", "hij opereerde"], ["perfect", "heeft geopereerd"]], "opposite": null, "english": "operated on / had surgery", "source": "Ruud wordt rij-instructeur"}, "zware beroepen": {"wordtype": "noun phrase (de ~)", "def": "Beroepen waarbij je veel lichamelijke kracht gebruikt, zoals in de bouw of het transport.", "example": "Voor de zware beroepen is het niet te doen om 45 jaar te werken.", "forms": [["singular", "het zware beroep"], ["plural", "de zware beroepen"]], "opposite": "lichte beroepen / kantoorbaan", "english": "physically demanding professions", "source": "Ruud wordt rij-instructeur"}, "opletten": {"wordtype": "verb (separable)", "def": "Goed letten op iets, aandacht geven aan iets wat belangrijk is.", "example": "Het is een zaak van opletten en nadenken over je eigen gezondheid.", "forms": [["present (ik)", "ik let op"], ["present (hij)", "hij let op"], ["past (hij)", "hij lette op"], ["perfect", "heeft opgelet"]], "opposite": "negeren / niet opletten", "english": "to pay attention / to watch out", "source": "Ruud wordt rij-instructeur"}, "gezondheid": {"wordtype": "noun (de ~, uncountable)", "def": "De toestand van je lichaam en geest. Als je gezond bent, functioneert alles goed.", "example": "Het is een zaak van opletten en nadenken over je eigen gezondheid.", "forms": [["singular", "de gezondheid"], ["plural", "—"]], "opposite": "ziekte / ongezondheid", "english": "health", "source": "Ruud wordt rij-instructeur"}, "in staat": {"wordtype": "expression", "def": "In staat zijn om iets te doen betekent dat je het kunt, dat je het vermogen hebt.", "example": "Ook is niet iedereen in staat om te leren.", "forms": [], "opposite": "niet in staat", "english": "able to / capable of", "source": "Ruud wordt rij-instructeur"}, "complimenteert": {"wordtype": "verb", "def": "Iemand een compliment geven, zeggen dat hij of zij iets goed heeft gedaan.", "example": "Joke complimenteert Ruud voor het feit dat hij deze stap heeft genomen.", "forms": [["present (ik)", "ik complimenteer"], ["present (hij)", "hij complimenteert"], ["past (hij)", "hij complimenteerde"], ["perfect", "heeft gecomplimenteerd"]], "opposite": null, "english": "compliments / praises", "source": "Ruud wordt rij-instructeur"}, "stap": {"wordtype": "noun (de ~)", "def": "1. Een beweging met je voet bij het lopen. 2. Een actie of beslissing in een proces.", "example": "Joke complimenteert Ruud voor de stap die hij heeft genomen.", "forms": [["singular", "de stap"], ["plural", "de stappen"]], "opposite": null, "english": "step", "source": "Ruud wordt rij-instructeur"}, "medewerkers": {"wordtype": "noun (de ~)", "def": "De mensen die werken bij een bedrijf of organisatie.", "example": "Heel veel medewerkers in de leeftijdscategorie van Ruud zijn afwachtend.", "forms": [["singular", "de medewerker"], ["plural", "de medewerkers"]], "opposite": null, "english": "employees / staff", "source": "Ruud wordt rij-instructeur"}, "afwachtend": {"wordtype": "adjective", "def": "Passief wachten tot anderen iets doen of beslissen. Iemand die afwachtend is, neemt zelf geen initiatief.", "example": "Heel veel medewerkers in de leeftijdscategorie van Ruud zijn afwachtend.", "forms": [["comparative", "meer afwachtend"], ["superlative", "het meest afwachtend"]], "opposite": "proactief / initiatiefnemer", "english": "passive / wait-and-see", "source": "Ruud wordt rij-instructeur"}, "veronderstelling": {"wordtype": "noun (de ~)", "def": "Iets wat je aanneemt of gelooft zonder dat het zeker is.", "example": "Ze dachten dat ze na 40 dienstjaren konden stoppen, maar die veronderstelling klopte niet.", "forms": [["singular", "de veronderstelling"], ["plural", "de veronderstellingen"]], "opposite": "zekerheid", "english": "assumption / supposition", "source": "Ruud wordt rij-instructeur"}, "dienstjaren": {"wordtype": "noun (de ~)", "def": "Het aantal jaren dat iemand in dienst is bij een bedrijf of in een beroep.", "example": "Ze dachten dat ze na 40 dienstjaren konden stoppen.", "forms": [["singular", "het dienstjaar"], ["plural", "de dienstjaren"]], "opposite": null, "english": "years of service", "source": "Ruud wordt rij-instructeur"}, "samenwerking": {"wordtype": "noun (de ~)", "def": "Samen met anderen iets doen om een gemeenschappelijk doel te bereiken.", "example": "Zijn omscholing heeft tot een prachtige samenwerking geleid.", "forms": [["singular", "de samenwerking"], ["plural", "de samenwerkingen"]], "opposite": null, "english": "collaboration / cooperation", "source": "Ruud wordt rij-instructeur"}, "maatschappij": {"wordtype": "noun (de ~)", "def": "De samenleving; alle mensen die samen in een land of cultuur leven met gedeelde regels en gewoonten.", "example": "Huilen wordt in onze Westerse maatschappij meestal niet zo gewaardeerd.", "forms": [["singular", "de maatschappij"], ["plural", "de maatschappijen"]], "opposite": null, "english": "society", "source": "Een potje huilen"}, "gewaardeerd": {"wordtype": "verb (past participle)", "def": "Als iets gewaardeerd wordt, betekent dat mensen het goed vinden of er respect voor hebben.", "example": "Huilen wordt in onze maatschappij meestal niet zo gewaardeerd.", "forms": [["infinitive", "waarderen"], ["present (hij)", "hij waardeert"], ["past (hij)", "hij waardeerde"], ["perfect", "heeft gewaardeerd"]], "opposite": "niet gewaardeerd", "english": "valued / appreciated", "source": "Een potje huilen"}, "zwakte": {"wordtype": "noun (de ~, uncountable)", "def": "Het ontbreken van kracht of moed. Als iets als zwakte wordt gezien, denken mensen dat het slecht of negatief is.", "example": "Huilen wordt vaak gezien als een teken van zwakte.", "forms": [["singular", "de zwakte"], ["plural", "de zwaktes"]], "opposite": "kracht / sterkte", "english": "weakness", "source": "Een potje huilen"}, "inhouden": {"wordtype": "verb (separable)", "def": "Iets tegenhouden of niet laten zien. Tranen inhouden betekent dat je niet huilt, ook al wil je dat wel.", "example": "Die tranen kun je maar beter inhouden, denken veel mensen.", "forms": [["present (ik)", "ik houd in"], ["present (hij)", "hij houdt in"], ["past (hij)", "hij hield in"], ["perfect", "heeft ingehouden"]], "opposite": "laten gaan / uiten", "english": "to hold back / to suppress", "source": "Een potje huilen"}, "aangemoedigd": {"wordtype": "verb (past participle)", "def": "Als je aangemoedigd wordt, wordt je gestimuleerd of aangezet om iets te doen.", "example": "In Japan wordt huilen soms aangemoedigd om stress los te laten.", "forms": [["infinitive", "aanmoedigen"], ["present (hij)", "hij moedigt aan"], ["past (hij)", "hij moedigde aan"], ["perfect", "heeft aangemoedigd"]], "opposite": "ontmoedigd", "english": "encouraged", "source": "Een potje huilen"}, "spanning": {"wordtype": "noun (de ~, uncountable)", "def": "Een gespannen gevoel van stress of angst. Je hebt spanning als je nerveus bent of veel druk ervaart.", "example": "In Japan wordt huilen aangemoedigd om stress en spanning los te laten.", "forms": [["singular", "de spanning"], ["plural", "de spanningen"]], "opposite": "ontspanning", "english": "tension / stress", "source": "Een potje huilen"}, "traanklieren": {"wordtype": "noun (de ~)", "def": "Kleine klieren in en rond het oog die traanvocht produceren. Ze houden het oog vochtig en schoon.", "example": "Dieren hebben ook traanklieren, maar je zal ze niet zien huilen van emotie.", "forms": [["singular", "de traanklier"], ["plural", "de traanklieren"]], "opposite": null, "english": "tear glands / lacrimal glands", "source": "Een potje huilen"}, "emotie": {"wordtype": "noun (de ~)", "def": "Een gevoel dat je sterk ervaart, zoals blijdschap, verdriet, woede, angst of liefde.", "example": "Maar huilen van emotie, dat is iets wat alleen wij mensen doen.", "forms": [["singular", "de emotie"], ["plural", "de emoties"]], "opposite": null, "english": "emotion", "source": "Een potje huilen"}, "geactiveerd": {"wordtype": "verb (past participle)", "def": "In werking gesteld worden. Als de traanklieren geactiveerd worden, gaan ze werken en tranen produceren.", "example": "De traanklieren van mensen kunnen door verschillende dingen worden geactiveerd.", "forms": [["infinitive", "activeren"], ["present (hij)", "hij activeert"], ["past (hij)", "hij activeerde"], ["perfect", "heeft geactiveerd"]], "opposite": null, "english": "activated / triggered", "source": "Een potje huilen"}, "traanvocht": {"wordtype": "noun (het ~, uncountable)", "def": "Het vloeibare vocht dat door de traanklieren wordt gemaakt om het oog vochtig en schoon te houden.", "example": "Er wordt traanvocht geproduceerd om het oog zo snel mogelijk schoon te spoelen.", "forms": [["singular", "het traanvocht"], ["plural", "—"]], "opposite": null, "english": "tear fluid / lacrimal fluid", "source": "Een potje huilen"}, "overweldigd": {"wordtype": "adjective", "def": "Zo sterk door een gevoel of situatie geraakt worden dat je er niet goed mee om kunt gaan.", "example": "Je kunt ook huilen als je overweldigd bent door gevoelens van geluk en vreugde.", "forms": [["comparative", "meer overweldigd"], ["superlative", "het meest overweldigd"]], "opposite": null, "english": "overwhelmed", "source": "Een potje huilen"}, "schaamte": {"wordtype": "noun (de ~, uncountable)", "def": "Een pijnlijk gevoel dat je hebt als je denkt dat je iets fout hebt gedaan of als je je beoordeeld voelt door anderen.", "example": "Je kunt huilen van verdriet, woede of schaamte.", "forms": [["singular", "de schaamte"], ["plural", "—"]], "opposite": null, "english": "shame / embarrassment", "source": "Een potje huilen"}, "evolutionair": {"wordtype": "adjective / adverb", "def": "Verband houdend met evolutie, de langzame biologische ontwikkeling van levende wezens door de tijd heen.", "example": "Huilen heeft evolutionair gezien een heel duidelijke communicatiefunctie.", "forms": [], "opposite": null, "english": "evolutionarily / from an evolutionary perspective", "source": "Een potje huilen"}, "communicatiefunctie": {"wordtype": "noun (de ~)", "def": "De rol die iets speelt in de communicatie tussen mensen of dieren, het doel van het gedrag als boodschap.", "example": "Huilen heeft evolutionair gezien een heel duidelijke communicatiefunctie.", "forms": [["singular", "de communicatiefunctie"], ["plural", "de communicatiefuncties"]], "opposite": null, "english": "communicative function", "source": "Een potje huilen"}, "gedragswetenschappers": {"wordtype": "noun (de ~)", "def": "Wetenschappers die het gedrag van mensen en dieren bestuderen.", "example": "Gedragswetenschappers geven aan dat huilen bij volwassenen ook die functie heeft.", "forms": [["singular", "de gedragswetenschapper"], ["plural", "de gedragswetenschappers"]], "opposite": null, "english": "behavioural scientists", "source": "Een potje huilen"}, "volwassenen": {"wordtype": "noun (de ~)", "def": "Mensen die volledig zijn uitgegroeid, meestal ouder dan 18 jaar.", "example": "Gedragswetenschappers geven aan dat huilen bij volwassenen ook die functie heeft.", "forms": [["singular", "de volwassene"], ["plural", "de volwassenen"]], "opposite": "kinderen", "english": "adults", "source": "Een potje huilen"}, "getroost": {"wordtype": "verb (past participle)", "def": "Geholpen worden om je beter te voelen als je verdrietig of overstuur bent.", "example": "Vaak word je snel getroost als je in het openbaar huilt.", "forms": [["infinitive", "troosten"], ["present (hij)", "hij troost"], ["past (hij)", "hij troostte"], ["perfect", "heeft getroost"]], "opposite": null, "english": "comforted", "source": "Een potje huilen"}, "openbaar": {"wordtype": "adjective / adverb", "def": "Op een plek waar iedereen kan zijn en anderen je kunnen zien.", "example": "Vaak word je snel getroost als je in het openbaar huilt.", "forms": [], "opposite": "prive", "english": "in public / public", "source": "Een potje huilen"}, "huilbuien": {"wordtype": "noun (de ~)", "def": "Periodes van hevig huilen. Een huilbui duurt een bepaalde tijd en stopt daarna weer.", "example": "Het is maar goed dat die huilbuien in tussenpozen komen.", "forms": [["singular", "de huilbui"], ["plural", "de huilbuien"]], "opposite": null, "english": "crying fits / bouts of crying", "source": "Een potje huilen"}, "hormonen": {"wordtype": "noun (de ~)", "def": "Chemische stoffen die door het lichaam worden gemaakt en allerlei processen in het lichaam regelen.", "example": "Dat vrouwen meer huilen heeft te maken met de verschillende hormonen die mannen en vrouwen aanmaken.", "forms": [["singular", "het hormoon"], ["plural", "de hormonen"]], "opposite": null, "english": "hormones", "source": "Een potje huilen"}, "testosteron": {"wordtype": "noun (het ~, uncountable)", "def": "Een hormoon dat meer voorkomt bij mannen dan bij vrouwen. Het vormt een drempel om te huilen.", "example": "Mannen hebben meer testosteron in hun lichaam, wat een soort drempel vormt om te huilen.", "forms": [["singular", "het testosteron"], ["plural", "—"]], "opposite": null, "english": "testosterone", "source": "Een potje huilen"}, "drempel": {"wordtype": "noun (de ~)", "def": "1. Het lage stuk onder een deur. 2. Figuurlijk: de grens die je over moet voordat je iets doet.", "example": "Testosteron vormt een soort drempel om te huilen.", "forms": [["singular", "de drempel"], ["plural", "de drempels"]], "opposite": null, "english": "threshold", "source": "Een potje huilen"}, "prolactine": {"wordtype": "noun (het ~, uncountable)", "def": "Een hormoon dat meer voorkomt bij vrouwen dan bij mannen. Het verlaagt de drempel om te huilen.", "example": "Vrouwen hebben door het hormoon prolactine een lagere drempel om te huilen.", "forms": [["singular", "het prolactine"], ["plural", "—"]], "opposite": null, "english": "prolactin", "source": "Een potje huilen"}, "traanbuizen": {"wordtype": "noun (de ~)", "def": "Kleine buisjes die de tranen van het oog afvoeren naar de neus. Bij mannen zijn deze kleiner dan bij vrouwen.", "example": "De traanbuizen van mannen zijn kleiner dan die van vrouwen.", "forms": [["singular", "de traanbuis"], ["plural", "de traanbuizen"]], "opposite": null, "english": "tear ducts", "source": "Een potje huilen"}, "opluchten": {"wordtype": "verb", "def": "Een gevoel van verlichting geven. Als iets opluchtte, voel je je beter en minder gespannen na afloop.", "example": "Iedereen weet hoe huilen kan opluchten.", "forms": [["present (ik)", "ik lucht op"], ["present (hij)", "hij lucht op"], ["past (hij)", "hij luchtte op"], ["perfect", "heeft opgelucht"]], "opposite": null, "english": "to relieve / to bring relief", "source": "Een potje huilen"}, "dwarszit": {"wordtype": "verb", "def": "Als iets je dwarszit, stoort het je of zit je ermee. Het bezighoudt je negatief.", "example": "Je komt tijdens het huilen erachter wat je nou precies dwarszit.", "forms": [["present (ik)", "het zit me dwars"], ["present (hij)", "het zit hem dwars"], ["past", "het zat me dwars"], ["perfect", "heeft dwarsgezeten"]], "opposite": null, "english": "bothers you / troubles you", "source": "Een potje huilen"}, "samenstelling": {"wordtype": "noun (de ~)", "def": "De manier waarop iets is samengesteld; welke onderdelen of stoffen erin zitten.", "example": "Tranen van emotie hebben een andere samenstelling dan tranen door irritatie.", "forms": [["singular", "de samenstelling"], ["plural", "de samenstellingen"]], "opposite": null, "english": "composition / makeup", "source": "Een potje huilen"}, "pijnstillende werking": {"wordtype": "noun phrase (de ~)", "def": "Het effect van iets dat pijn vermindert of wegneemt. Sommige hormonen hebben een pijnstillende werking.", "example": "Emotionele tranen bevatten hormonen met een pijnstillende werking.", "forms": [], "opposite": null, "english": "pain-relieving effect", "source": "Een potje huilen"}, "gelukshormonen": {"wordtype": "noun (de ~)", "def": "Hormonen die je een goed of gelukkig gevoel geven, zoals endorfinen en serotonine.", "example": "Tijdens het huilen komen er gelukshormonen vrij die je kalm maken.", "forms": [["singular", "het gelukshormoon"], ["plural", "de gelukshormonen"]], "opposite": null, "english": "happiness hormones", "source": "Een potje huilen"}, "endorfinen": {"wordtype": "noun (de ~)", "def": "Hormonen die je lichaam aanmaakt als je sport, lacht of huilt. Ze geven een fijn gevoel en verminderen pijn.", "example": "Tijdens het huilen komen endorfinen vrij die je kalm maken.", "forms": [["singular", "het endorfine"], ["plural", "de endorfinen"]], "opposite": null, "english": "endorphins", "source": "Een potje huilen"}, "geacht": {"wordtype": "verb (past participle)", "def": "Verwacht worden. Als je geacht wordt iets te doen, is dat wat de samenleving van jou verwacht.", "example": "Mannen worden geacht altijd sterk te zijn en niet te huilen.", "forms": [["infinitive", "achten"], ["present (hij)", "hij acht"], ["past (hij)", "hij achtte"], ["perfect", "heeft geacht"]], "opposite": null, "english": "expected to / supposed to", "source": "Een potje huilen"}, "onderdrukt": {"wordtype": "verb (past participle)", "def": "Iets tegenhouden zodat het niet naar buiten komt. Gevoelens onderdrukken betekent dat je ze niet toont.", "example": "Als je lange tijd je gevoelens onderdrukt, raak je het contact met je emoties kwijt.", "forms": [["infinitive", "onderdrukken"], ["present (hij)", "hij onderdrukt"], ["past (hij)", "hij onderdrukte"], ["perfect", "heeft onderdrukt"]], "opposite": "uiten / tonen", "english": "suppressed", "source": "Een potje huilen"}, "behoefte": {"wordtype": "noun (de ~)", "def": "Een gevoel dat je iets nodig hebt of wilt.", "example": "Als je niet huilt terwijl je wel de behoefte hebt, raak je contact met je emoties kwijt.", "forms": [["singular", "de behoefte"], ["plural", "de behoeften"]], "opposite": null, "english": "need / desire", "source": "Een potje huilen"}, "wissewasje": {"wordtype": "noun (het ~)", "def": "Een klein, onbelangrijk dingetje of probleempje.", "example": "Natuurlijk hoef je niet om elk wissewasje in huilen uit te barsten.", "forms": [["singular", "het wissewasje"], ["plural", "de wissewasjes"]], "opposite": null, "english": "trivial matter / trifle", "source": "Een potje huilen"}, "aanmaken": {"wordtype": "verb (separable)", "def": "Produceren of maken, zoals hormonen die het lichaam aanmaakt.", "example": "Dat vrouwen meer huilen heeft te maken met de hormonen die mannen en vrouwen aanmaken.", "forms": [["present (ik)", "ik maak aan"], ["present (hij)", "hij maakt aan"], ["past (hij)", "hij maakte aan"], ["perfect", "heeft aangemaakt"]], "opposite": null, "english": "to produce / to make", "source": "Een potje huilen"}, "aanwezigheid": {"wordtype": "noun (de ~)", "def": "Het aanwezig zijn van iets of iemand op een plek of in een situatie.", "example": "Vrouwen hebben door de aanwezigheid van het hormoon prolactine een lagere drempel om te huilen.", "forms": [["singular", "de aanwezigheid"], ["plural", "de aanwezigheden"]], "opposite": "afwezigheid", "english": "presence", "source": "Een potje huilen"}, "afvoeren": {"wordtype": "verb (separable)", "def": "Iets ergens vandaan naar een andere plek brengen, zoals vloeistof die wordt afgevoerd.", "example": "De traanbuizen zijn kleine buisjes die de tranen afvoeren.", "forms": [["present (ik)", "ik voer af"], ["present (hij)", "hij voert af"], ["past (hij)", "hij voerde af"], ["perfect", "heeft afgevoerd"]], "opposite": null, "english": "to drain / to carry away", "source": "Een potje huilen"}, "alleen mensen": {"wordtype": "noun phrase", "def": "Uitdrukking die aangeeft dat iets alleen geldt voor mensen en niet voor andere dieren.", "example": "Maar huilen van emotie, dat is iets wat alleen wij mensen doen.", "forms": [], "opposite": null, "english": "only humans / only people", "source": "Een potje huilen"}, "anders": {"wordtype": "adjective / adverb", "def": "Op een andere manier of met een andere mening. Niet hetzelfde als voorheen of als anderen.", "example": "In Japan kijken veel mensen heel anders tegen huilen aan.", "forms": [], "opposite": "hetzelfde / gelijk", "english": "differently / different", "source": "Een potje huilen"}, "begonnen": {"wordtype": "verb (past participle)", "def": "Het verleden deelwoord van beginnen. Gestart zijn met iets.", "example": "Het zijn mensen die met 15, 16 jaar zijn begonnen met werken in de bouw.", "forms": [["infinitive", "beginnen"], ["present (hij)", "hij begint"], ["past (hij)", "hij begon"], ["perfect", "is begonnen"]], "opposite": null, "english": "started / begun", "source": "Ruud wordt rij-instructeur"}, "best doen": {"wordtype": "expression", "def": "Je best doen betekent: al je inspanning geven, zo goed mogelijk proberen.", "example": "Maar als je heel goed je best doet, lukt het echt wel.", "forms": [], "opposite": null, "english": "to do your best / to try your hardest", "source": "Ruud wordt rij-instructeur"}, "bouw": {"wordtype": "noun (de ~, uncountable)", "def": "De sector of het werk waarbij gebouwen en constructies worden gebouwd.", "example": "Het zijn mensen die met 15, 16 jaar zijn begonnen met werken in de bouw.", "forms": [["singular", "de bouw"], ["plural", "—"]], "opposite": null, "english": "construction / the building industry", "source": "Ruud wordt rij-instructeur"}, "contact": {"wordtype": "noun (het ~)", "def": "Verbinding of communicatie met een ander persoon of organisatie.", "example": "Joke zocht contact met Valedo en legde hen de situatie voor.", "forms": [["singular", "het contact"], ["plural", "de contacten"]], "opposite": null, "english": "contact", "source": "Ruud wordt rij-instructeur"}, "eerder": {"wordtype": "adjective / adverb", "def": "Op een eerder tijdstip. Meer in het verleden of als eerste van twee dingen.", "example": "Hoe eerder je je ervan bewust bent, hoe beter.", "forms": [], "opposite": "later", "english": "earlier / sooner", "source": "Ruud wordt rij-instructeur"}, "geldt": {"wordtype": "verb", "def": "Van toepassing zijn op iets of iemand. Als iets ergens voor geldt, is het van kracht.", "example": "Dat geldt zeker voor de zware beroepen.", "forms": [["infinitive", "gelden"], ["present (hij)", "het geldt"], ["past (hij)", "het gold"], ["perfect", "heeft gegolden"]], "opposite": null, "english": "applies / is valid", "source": "Ruud wordt rij-instructeur"}, "geproduceerd": {"wordtype": "verb (past participle)", "def": "Gemaakt of aangemaakt. Iets dat het lichaam of een fabriek heeft gemaakt.", "example": "Er wordt traanvocht geproduceerd om het oog zo snel mogelijk schoon te spoelen.", "forms": [["infinitive", "produceren"], ["present (hij)", "hij produceert"], ["past (hij)", "hij produceerde"], ["perfect", "heeft geproduceerd"]], "opposite": null, "english": "produced / generated", "source": "Een potje huilen"}, "gesprekken": {"wordtype": "noun (de ~)", "def": "Meervoud van gesprek. Mondelinge uitwisselingen van informatie en meningen tussen mensen.", "example": "Er werden gesprekken gevoerd en vragenlijsten ingevuld.", "forms": [["singular", "het gesprek"], ["plural", "de gesprekken"]], "opposite": null, "english": "conversations / meetings", "source": "Ruud wordt rij-instructeur"}, "gezorgd": {"wordtype": "verb (past participle)", "def": "Gezorgd hebben voor iemand betekent: goed voor hem of haar gezorgd, geholpen.", "example": "Ruud heeft altijd goed voor Jeurissen gezorgd.", "forms": [["infinitive", "zorgen"], ["present (hij)", "hij zorgt"], ["past (hij)", "hij zorgde"], ["perfect", "heeft gezorgd"]], "opposite": null, "english": "taken care of / looked after", "source": "Ruud wordt rij-instructeur"}, "herkennen": {"wordtype": "verb", "def": "Iets of iemand herkennen betekent: weten wie het is of dat je iets eerder hebt gezien of meegemaakt.", "example": "Veel mensen zullen wel herkennen dat je soms niet precies weet waarom je huilt.", "forms": [["present (ik)", "ik herken"], ["present (hij)", "hij herkent"], ["past (hij)", "hij herkende"], ["perfect", "heeft herkend"]], "opposite": null, "english": "to recognise", "source": "Een potje huilen"}, "huidige werk": {"wordtype": "noun phrase (het ~)", "def": "Het werk dat je op dit moment doet. Je huidige baan of functie.", "example": "Ook Ruud wilde door, maar kon dat niet meer in zijn huidige werk.", "forms": [], "opposite": null, "english": "current job / current work", "source": "Ruud wordt rij-instructeur"}, "huilclubs": {"wordtype": "noun (de ~)", "def": "Speciale clubs in Japan waar mensen samenkomen om samen huilfilms te kijken en te huilen.", "example": "Zo heb je er speciale huilclubs waar je naar huilfilms kunt kijken.", "forms": [["singular", "de huilclub"], ["plural", "de huilclubs"]], "opposite": null, "english": "crying clubs", "source": "Een potje huilen"}, "huilfilms": {"wordtype": "noun (de ~)", "def": "Films die speciaal bedoeld zijn om mensen aan het huilen te maken door een emotioneel verhaal.", "example": "In Japan kun je naar speciale huilfilms kijken in huilclubs.", "forms": [["singular", "de huilfilm"], ["plural", "de huilfilms"]], "opposite": null, "english": "tearjerker films", "source": "Een potje huilen"}, "hulp nodig": {"wordtype": "expression", "def": "Hulp nodig hebben betekent: niet in staat zijn iets alleen te doen en steun van anderen nodig hebben.", "example": "Als anderen je zien huilen, geeft dat een signaal dat je hulp nodig hebt.", "forms": [], "opposite": null, "english": "need help / in need of help", "source": "Een potje huilen"}, "irritatie": {"wordtype": "noun (de ~)", "def": "Een onaangenaam gevoel dat wordt veroorzaakt door iets wat je stoort, zoals rook in je ogen.", "example": "Tranen door irritatie van de ogen hebben een andere samenstelling dan tranen van emotie.", "forms": [["singular", "de irritatie"], ["plural", "de irritaties"]], "opposite": null, "english": "irritation", "source": "Een potje huilen"}, "irriteert": {"wordtype": "verb", "def": "Iets irriteert je als het een onaangenaam gevoel geeft of je stoort.", "example": "Rook of de damp van gesneden uien irriteert de traanklieren.", "forms": [["infinitive", "irriteren"], ["present (hij)", "het irriteert"], ["past (hij)", "het irriteerde"], ["perfect", "heeft geirriteerd"]], "opposite": null, "english": "irritates", "source": "Een potje huilen"}, "kerst": {"wordtype": "noun (de ~, uncountable)", "def": "Het christelijke feest op 25 en 26 december. In Nederland ook een moment van rust en familiebezoek.", "example": "Voor de kerst zei ik tegen mijn vrouw: het gaat niet meer.", "forms": [["singular", "de kerst"], ["plural", "—"]], "opposite": null, "english": "Christmas", "source": "Ruud wordt rij-instructeur"}, "knoop in je maag": {"wordtype": "expression", "def": "Een knoop in je maag voelen betekent: een gespannen, onrustig gevoel in je buik hebben door stress of zorgen.", "example": "Soms loop je al een tijd rond met een knoop in je maag, of ben je boos of verdrietig.", "forms": [], "opposite": null, "english": "knot in your stomach", "source": "Een potje huilen"}, "leeftijd": {"wordtype": "noun (de ~)", "def": "Het aantal jaren dat iemand oud is. De leeftijd geeft aan hoe lang iemand al leeft.", "example": "Een hele omslag op die leeftijd, maar voor Ruud was er geen andere optie.", "forms": [["singular", "de leeftijd"], ["plural", "de leeftijden"]], "opposite": null, "english": "age", "source": "Ruud wordt rij-instructeur"}, "leven": {"wordtype": "noun (het ~)", "def": "Het geheel van ervaringen en gebeurtenissen van een persoon van geboorte tot dood.", "example": "Als je dat op een heel leven bekijkt, is dat voor vrouwen 16 maanden huilen.", "forms": [["singular", "het leven"], ["plural", "de levens"]], "opposite": "dood", "english": "life", "source": "Een potje huilen"}, "lichaam": {"wordtype": "noun (het ~)", "def": "Het fysieke organisme van een mens of dier, inclusief alle organen, spieren en botten.", "example": "Mijn lichaam wil niet meer. Op dit moment zit ik in de ziektewet.", "forms": [["singular", "het lichaam"], ["plural", "de lichamen"]], "opposite": null, "english": "body", "source": "Ruud wordt rij-instructeur"}, "lukt": {"wordtype": "verb", "def": "Slagen in iets, iets met succes doen. Als iets lukt, gaat het goed.", "example": "Als je heel goed je best doet, lukt het echt wel.", "forms": [["infinitive", "lukken"], ["present (hij)", "het lukt"], ["past (hij)", "het lukte"], ["perfect", "is gelukt"]], "opposite": "mislukt", "english": "succeeds / works out", "source": "Ruud wordt rij-instructeur"}, "maanden": {"wordtype": "noun (de ~)", "def": "Meervoud van maand. Een maand is een periode van ongeveer vier weken.", "example": "Als je dat op een heel leven bekijkt, is dat voor vrouwen 16 maanden huilen.", "forms": [["singular", "de maand"], ["plural", "de maanden"]], "opposite": null, "english": "months", "source": "Een potje huilen"}, "medisch onderzocht": {"wordtype": "verb phrase", "def": "Door een arts onderzocht worden om te kijken of je gezond bent of dat er iets mis is met je lichaam.", "example": "Ruud vindt het goed dat mensen in de sector regelmatig medisch onderzocht worden.", "forms": [["infinitive", "medisch onderzoeken"], ["perfect", "heeft medisch onderzocht"]], "opposite": null, "english": "medically examined", "source": "Ruud wordt rij-instructeur"}, "moest door": {"wordtype": "expression", "def": "Door moeten gaan betekent: verplicht zijn te blijven doorgaan, ook als je dat eigenlijk niet wilt.", "example": "Ook Ruud wilde en moest door, maar kon dat niet meer in zijn huidige werk.", "forms": [], "opposite": null, "english": "had to continue / was forced to go on", "source": "Ruud wordt rij-instructeur"}, "niet meer": {"wordtype": "expression", "def": "Aanduiding dat iets niet langer het geval is of niet langer kan. Het is voorbij of onmogelijk geworden.", "example": "Mijn lichaam wil niet meer. Op dit moment zit ik in de ziektewet.", "forms": [], "opposite": null, "english": "no longer / not anymore", "source": "Ruud wordt rij-instructeur"}, "niet vol": {"wordtype": "expression", "def": "Iets niet volhouden betekent: niet in staat zijn iets tot het einde vol te houden of door te gaan.", "example": "Hij houdt dat in dit beroep waarschijnlijk niet vol.", "forms": [], "opposite": null, "english": "cannot keep it up / cannot sustain it", "source": "Ruud wordt rij-instructeur"}, "nodig": {"wordtype": "adjective", "def": "Iets is nodig als je het moet hebben of doen, als het onvermijdelijk of vereist is.", "example": "Natuurlijk zorgen wij nu het nodig is ook goed voor Ruud.", "forms": [["comparative", "meer nodig"], ["superlative", "het meest nodig"]], "opposite": "onnodig", "english": "necessary / needed", "source": "Ruud wordt rij-instructeur"}, "ode": {"wordtype": "noun (de ~)", "def": "Een lofzang of eerbetoon aan iets of iemand. Een kleine ode is een positieve beschrijving of eerbetoon.", "example": "Lees verder voor een kleine ode aan een traantje op zijn tijd.", "forms": [["singular", "de ode"], ["plural", "de odes"]], "opposite": null, "english": "ode / tribute", "source": "Een potje huilen"}, "op je tenen": {"wordtype": "expression", "def": "Op je tenen lopen betekent: je best doen, gespannen of onder druk staan, net aan je grens zitten.", "example": "Loop je een beetje op je tenen of heb je veel stress?", "forms": [], "opposite": null, "english": "on edge / barely managing", "source": "Een potje huilen"}, "optie": {"wordtype": "noun (de ~)", "def": "Een mogelijkheid of keuze die je kunt kiezen uit meerdere alternatieven.", "example": "Een hele omslag op die leeftijd, maar voor Ruud was er geen andere optie.", "forms": [["singular", "de optie"], ["plural", "de opties"]], "opposite": null, "english": "option / choice", "source": "Ruud wordt rij-instructeur"}, "potje huilen": {"wordtype": "expression", "def": "Een potje huilen betekent: even flink huilen, een korte periode van hevig huilen.", "example": "Kijk eens of het je lukt een potje te huilen.", "forms": [], "opposite": null, "english": "to have a good cry", "source": "Een potje huilen"}, "raakt": {"wordtype": "verb", "def": "Iemand of iets raken betekent: een emotionele indruk maken, iemand diep treffen.", "example": "De sterke emotie van een ander raakt dan je eigen emoties.", "forms": [["infinitive", "raken"], ["present (hij)", "het raakt"], ["past (hij)", "het raakte"], ["perfect", "heeft geraakt"]], "opposite": null, "english": "touches / affects", "source": "Een potje huilen"}, "schuift op": {"wordtype": "expression", "def": "Iets schuift op betekent: iets beweegt langzaam naar een hogere of latere waarde.", "example": "Die leeftijd schuift steeds verder op.", "forms": [], "opposite": null, "english": "keeps moving up / shifts further", "source": "Ruud wordt rij-instructeur"}, "signaal": {"wordtype": "noun (het ~)", "def": "Een teken dat iets aangeeft, een boodschap die duidelijk maakt wat er aan de hand is.", "example": "Als anderen je zien huilen, geeft dat een duidelijk signaal dat je hulp nodig hebt.", "forms": [["singular", "het signaal"], ["plural", "de signalen"]], "opposite": null, "english": "signal / sign", "source": "Een potje huilen"}, "situatie": {"wordtype": "noun (de ~)", "def": "De toestand of omstandigheid waarin iemand of iets zich bevindt op een bepaald moment.", "example": "Joke zocht contact met Valedo en legde hen de situatie voor.", "forms": [["singular", "de situatie"], ["plural", "de situaties"]], "opposite": null, "english": "situation", "source": "Ruud wordt rij-instructeur"}, "spoelen": {"wordtype": "verb", "def": "Met water of een vloeistof schoonmaken door het eroverheen te laten stromen.", "example": "De traanklieren bij dieren zitten er om stofjes en bacterien uit de ogen te spoelen.", "forms": [["present (ik)", "ik spoel"], ["present (hij)", "hij spoelt"], ["past (hij)", "hij spoelde"], ["perfect", "heeft gespoeld"]], "opposite": null, "english": "to rinse / to flush", "source": "Een potje huilen"}, "startte": {"wordtype": "verb (past tense)", "def": "Verleden tijd van starten. Begonnen zijn met iets.", "example": "De cursus startte begin dit jaar.", "forms": [["infinitive", "starten"], ["present (hij)", "hij start"], ["past (hij)", "hij startte"], ["perfect", "is gestart"]], "opposite": null, "english": "started", "source": "Ruud wordt rij-instructeur"}, "sterke emotie": {"wordtype": "noun phrase (de ~)", "def": "Een intens en krachtig gevoel dat iemand sterk beinvloedt.", "example": "Zien huilen doet soms ook huilen — de sterke emotie van een ander raakt je eigen emoties.", "forms": [], "opposite": "zwakke emotie / mild gevoel", "english": "strong emotion / intense feeling", "source": "Een potje huilen"}, "stofjes": {"wordtype": "noun (de ~)", "def": "Heel kleine deeltjes van iets, zoals stof of kleine vuiltjes in de lucht of in het oog.", "example": "De traanklieren bij dieren zitten er om stofjes en bacterien uit de ogen te spoelen.", "forms": [["singular", "het stofje"], ["plural", "de stofjes"]], "opposite": null, "english": "particles / tiny bits of dust", "source": "Een potje huilen"}, "stopt": {"wordtype": "verb", "def": "Ophouden met iets, beeindigen. Als iemand stopt, gaat hij of zij niet verder.", "example": "Binnenkort stopt hij echter bij zijn huidige werkgever.", "forms": [["infinitive", "stoppen"], ["present (hij)", "hij stopt"], ["past (hij)", "hij stopte"], ["perfect", "is gestopt"]], "opposite": "begint / gaat door", "english": "stops / quits", "source": "Ruud wordt rij-instructeur"}, "tegen huilen aan": {"wordtype": "expression", "def": "Ergens tegenaan kijken betekent: een bepaalde houding of mening hebben over iets.", "example": "In Japan kijken veel mensen heel anders tegen huilen aan.", "forms": [], "opposite": null, "english": "to regard / to look at (in a certain way)", "source": "Een potje huilen"}, "uitdrogen": {"wordtype": "verb", "def": "Helemaal droog worden door vocht te verliezen. Figuurlijk: zo veel vocht verliezen dat je uitgedroogd raakt.", "example": "Het is maar goed dat die huilbuien in tussenpozen komen, want je zou er compleet van uitdrogen.", "forms": [["present (ik)", "ik droog uit"], ["present (hij)", "hij droogt uit"], ["past (hij)", "hij droogde uit"], ["perfect", "is uitgedroogd"]], "opposite": "hydrateren", "english": "to dry out / to dehydrate", "source": "Een potje huilen"}, "uitgevoerd": {"wordtype": "verb (past participle)", "def": "Gedaan of uitgeoefend hebben. Werk uitvoeren betekent het daadwerkelijk doen.", "example": "Zijn beroep als timmerman heeft hij 45 jaar uitgevoerd.", "forms": [["infinitive", "uitvoeren"], ["present (hij)", "hij voert uit"], ["past (hij)", "hij voerde uit"], ["perfect", "heeft uitgevoerd"]], "opposite": null, "english": "carried out / performed", "source": "Ruud wordt rij-instructeur"}, "uitvoeren": {"wordtype": "verb (separable)", "def": "Iets daadwerkelijk doen of in praktijk brengen. Een taak of beroep uitoefenen.", "example": "Denk na of je je werk over 20 jaar nog kunt uitvoeren.", "forms": [["present (ik)", "ik voer uit"], ["present (hij)", "hij voert uit"], ["past (hij)", "hij voerde uit"], ["perfect", "heeft uitgevoerd"]], "opposite": null, "english": "to carry out / to perform / to execute", "source": "Ruud wordt rij-instructeur"}, "verdrietig": {"wordtype": "adjective / adverb", "def": "Het gevoel hebben van verdriet. Je bent verdrietig als iets pijnlijk of triest is.", "example": "Soms loop je al een tijd rond met een knoop in je maag, of ben je boos of verdrietig.", "forms": [["comparative", "verdrietiger"], ["superlative", "het verdrietigst"]], "opposite": "blij / vrolijk", "english": "sad / sorrowful", "source": "Een potje huilen"}, "vragenlijsten": {"wordtype": "noun (de ~)", "def": "Formulieren met een reeks vragen die iemand moet beantwoorden, bijvoorbeeld bij een onderzoek.", "example": "Er werden gesprekken gevoerd en vragenlijsten ingevuld.", "forms": [["singular", "de vragenlijst"], ["plural", "de vragenlijsten"]], "opposite": null, "english": "questionnaires", "source": "Ruud wordt rij-instructeur"}, "vroeg mogelijk": {"wordtype": "expression", "def": "Zo vroeg mogelijk betekent: zo snel als het kan, op het vroegst mogelijke moment.", "example": "Denk zo vroeg mogelijk na of je je werk over 20 jaar nog kunt uitvoeren.", "forms": [], "opposite": "zo laat mogelijk", "english": "as early as possible / as soon as possible", "source": "Ruud wordt rij-instructeur"}, "weetjes": {"wordtype": "noun (de ~)", "def": "Kleine, interessante feiten die je waarschijnlijk nog niet wist.", "example": "Lees verder voor een paar leuke weetjes over huilen.", "forms": [["singular", "het weetje"], ["plural", "de weetjes"]], "opposite": null, "english": "fun facts / interesting facts", "source": "Een potje huilen"}}');
 
-// ═══════════════════════════════════════════════════
-//  A1 SENTENCE BANK
-// ═══════════════════════════════════════════════════
-const A1_BANK = [
-  { source:'Ruud wordt rij-instructeur', dutch:'Ruud **werkt** als **timmerman**. Hij maakt dingen van hout.', english:'Ruud works as a carpenter. He makes things from wood.', words:['timmerman'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Het werk is **zwaar**. Ruud is **moe** na zijn werk.', english:'The work is hard. Ruud is tired after his work.', words:['zwaar','moe'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Ruud wil ander werk. Hij wil **autorijles** geven.', english:'Ruud wants different work. He wants to give driving lessons.', words:['autorijles'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Hij vindt het soms **moeilijk**. Maar ook **leuk**!', english:'He sometimes finds it difficult. But also fun!', words:['moeilijk','leuk'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Ruud begint iets **nieuws**. Hij gaat **omscholen**.', english:'Ruud is starting something new. He is going to retrain.', words:['nieuw','omscholen'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Zijn collega was **ziek**. Hij kon niet meer werken.', english:'His colleague was ill. He could no longer work.', words:['ziek'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Ruud **beslist** zelf. Hij **wacht** niet op anderen.', english:'Ruud decides for himself. He does not wait for others.', words:['beslist','wacht'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'De **rijschool** heet Jeurissen. Ruud werkt daar binnenkort.', english:'The driving school is called Jeurissen. Ruud will work there soon.', words:['rijschool'] },
-  { source:'Ruud wordt rij-instructeur', dutch:'Joke is zijn **begeleider**. Zij helpt Ruud elke dag.', english:'Joke is his supervisor. She helps Ruud every day.', words:['begeleider'] },
-  { source:'Buurtactie voor veiligheid', dutch:'De **straat** is nu **veilig**. Kinderen kunnen buiten spelen.', english:'The street is now safe. Children can play outside.', words:['straat','veilig'] },
-  { source:'Buurtactie voor veiligheid', dutch:'Janine is **blij**. De **buurt** ziet er beter uit.', english:'Janine is happy. The neighbourhood looks better.', words:['blij','buurt'] },
-  { source:'Buurtactie voor veiligheid', dutch:'De straat is **smaller** geworden. **Parkeren** is lastiger.', english:'The street has become narrower. Parking is more difficult.', words:['smaller','parkeren'] },
-  { source:'Buurtactie voor veiligheid', dutch:'De **buren** werken samen. Zij zijn blij met het **resultaat**.', english:'The neighbours work together. They are happy with the result.', words:['buren','resultaat'] },
-  { source:'Een potje huilen', dutch:'Mensen **huilen** soms. Dat is normaal en goed.', english:'People sometimes cry. That is normal and good.', words:['huilen'] },
-  { source:'Een potje huilen', dutch:'**Tranen** komen uit je ogen. Je hebt **gevoelens**.', english:'Tears come from your eyes. You have feelings.', words:['tranen','gevoelens'] },
-  { source:'Een potje huilen', dutch:'Je huilt van **verdriet**. Maar ook van **blijdschap**.', english:'You cry from sadness. But also from joy.', words:['verdriet','blijdschap'] },
-  { source:'De buurt-whatsapp', dutch:'Er was bijna een **inbreker**. Dat was eng voor Tea.', english:'There was almost a burglar. That was scary for Tea.', words:['inbreker'] },
-  { source:'De buurt-whatsapp', dutch:'De buren **waarschuwen** elkaar. Zij doen allemaal **mee**.', english:'The neighbours warn each other. They all participate.', words:['waarschuwen','meedoen'] },
-  { source:'De buurt-whatsapp', dutch:'De buurt is nu **veiliger**. Mensen **kennen** elkaar beter.', english:'The neighbourhood is now safer. People know each other better.', words:['veiliger','kennen'] },
-  { source:'Verkopen is een vak', dutch:'De **verkoper** helpt de **klanten**. Hij luistert goed.', english:'The salesperson helps the customers. He listens carefully.', words:['verkoper','klanten'] },
-  { source:'Verkopen is een vak', dutch:'De verkoper **luistert** naar de **klacht**. Hij wordt niet boos.', english:'The salesperson listens to the complaint. He does not get angry.', words:['luistert','klacht'] },
-  { source:'Verkopen is een vak', dutch:'Hij wil het probleem **oplossen**. Hij is **geduldig**.', english:'He wants to solve the problem. He is patient.', words:['oplossen','geduldig'] },
-  { source:'Verkopen is een vak', dutch:'De klant is **tevreden**. Zij gaat blij naar huis.', english:'The customer is satisfied. She goes home happy.', words:['tevreden'] },
-  { source:'Informatie Vision College', dutch:'Stacy hoort een **alarm**. Iedereen moet naar buiten.', english:'Stacy hears an alarm. Everyone must go outside.', words:['alarm'] },
-  { source:'Informatie Vision College', dutch:'De **verzamelplaats** is buiten. De **conciërge** helpt iedereen.', english:'The meeting point is outside. The caretaker helps everyone.', words:['verzamelplaats','conciërge'] },
-  { source:'Rob de Vrijer — natuur', dutch:'Rob is een **gids** in de **natuur**. Hij kent veel dieren.', english:'Rob is a guide in nature. He knows many animals.', words:['gids','natuur'] },
-  { source:'Rob de Vrijer — natuur', dutch:'Het werk is **zwaar** maar **leerzaam**. Rob leert elke dag.', english:'The work is hard but educational. Rob learns every day.', words:['leerzaam'] },
-];
+
 
 // ═══════════════════════════════════════════
 //  SAVED WORDS — localStorage, survives refresh
@@ -370,12 +328,12 @@ function saveWord(word) {
   const arr = loadSaved();
   if (!arr.includes(word)) { arr.push(word); storeSaved(arr); }
   updateNavCount();
-  renderA1Card(); // re-render so chip updates
+  renderSentCard();
 }
 function unsaveWord(word) {
   storeSaved(loadSaved().filter(w => w !== word));
   updateNavCount();
-  renderA1Card();
+  renderSentCard();
 }
 function toggleSave(word) {
   if (isSaved(word)) unsaveWord(word);
@@ -398,72 +356,7 @@ function showPage(name) {
   document.getElementById('page-' + name).classList.add('active');
   window.scrollTo(0, 0);
   if (name === 'wordlist') renderWordList();
-}
-
-// ═══════════════════════════════════════════
-//  LEVEL SWITCHING
-// ═══════════════════════════════════════════
-let currentLevel = 'A1';
-function setLevel(level) {
-  currentLevel = level;
-  document.querySelectorAll('.ltab').forEach(b => b.classList.toggle('active', b.dataset.level === level));
-  document.querySelectorAll('.level-panel').forEach(p => p.style.display = 'none');
-  document.getElementById('panel-' + level).style.display = 'block';
-  if (level === 'A1') showA1();
-}
-
-// ═══════════════════════════════════════════
-//  A1 SENTENCE DISPLAY
-// ═══════════════════════════════════════════
-let a1Index = -1;
-let a1EnglishVisible = false;
-const A1_SHUFFLED = [...A1_BANK].sort(() => Math.random() - .5);
-
-function showA1() {
-  a1EnglishVisible = false;
-  const btn = document.getElementById('a1-en-btn');
-  if (btn) btn.textContent = '🇬🇧 toon vertaling';
-  renderA1Card();
-}
-
-function nextA1() {
-  a1EnglishVisible = false;
-  const btn = document.getElementById('a1-en-btn');
-  if (btn) btn.textContent = '🇬🇧 toon vertaling';
-  a1Index = (a1Index + 1) % A1_SHUFFLED.length;
-  renderA1Card();
-}
-
-function renderA1Card() {
-  const card = document.getElementById('a1-card');
-  if (!card) return;
-  const item = A1_SHUFFLED[a1Index];
-  const dutchHtml = item.dutch.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  const pos = a1Index + 1;
-  const total = A1_SHUFFLED.length;
-
-  const chipsHtml = item.words.map(w => {
-    const saved = isSaved(w);
-    return `<button class="word-chip ${saved ? 'saved' : ''}" onclick="toggleSave('${w}')">
-      <span class="word-chip-word">${w}</span>
-      <span class="word-chip-action">${saved ? '★' : '☆'}</span>
-    </button>`;
-  }).join('');
-
-  card.innerHTML = `
-    <div class="a1-source">📄 ${item.source}</div>
-    <div class="a1-dutch">${dutchHtml}</div>
-    <div class="a1-english" id="a1-english" style="display:${a1EnglishVisible ? 'block' : 'none'}">${item.english}</div>
-    <div class="a1-vocab">${chipsHtml}</div>
-    <div class="a1-counter">${pos} / ${total}</div>`;
-}
-
-function toggleA1EN() {
-  a1EnglishVisible = !a1EnglishVisible;
-  const el = document.getElementById('a1-english');
-  const btn = document.getElementById('a1-en-btn');
-  if (el) el.style.display = a1EnglishVisible ? 'block' : 'none';
-  if (btn) btn.textContent = a1EnglishVisible ? '🇬🇧 verberg vertaling' : '🇬🇧 toon vertaling';
+  if (name === 'teksten') renderTekstenList();
 }
 
 // ═══════════════════════════════════════════
@@ -642,12 +535,473 @@ function updateDdays() {
   });
 }
 
+
+// ═══════════════════════════════════════════
+//  TEKSTEN DATA
+// ═══════════════════════════════════════════
+const TEKSTEN = [
+  {
+    id:'ruud', icon:'🔨',
+    title:'Ruud wordt rij-instructeur',
+    meta:'NT2-I 2025 · tekst 1 · vragen 1–6',
+    context:'Deze tekst komt van een website over werken en gezondheid. De tekst gaat over de omscholing van Ruud. Omscholen is iets nieuws leren om ander werk te kunnen doen.',
+    sections:[
+      { heading:null, sentences:[
+        { nl:'Ruud Kaag is timmerman en al sinds zijn 17e werkzaam in de bouwsector.', en:'Ruud Kaag is a carpenter and has been working in the construction sector since he was 17.' },
+        { nl:'Zijn beroep als timmerman heeft hij 45 jaar uitgevoerd.', en:'He has worked as a carpenter for 45 years.' },
+        { nl:'Binnenkort stopt hij echter bij zijn huidige werkgever.', en:'However, he will soon stop working for his current employer.' },
+        { nl:'Ondertussen volgt hij een opleiding tot rij-instructeur.', en:'In the meantime he is following a training course to become a driving instructor.' },
+        { nl:'Een hele omslag op die leeftijd, maar voor Ruud was er geen andere optie.', en:'A big change at that age, but for Ruud there was no other option.' },
+        { nl:'"Mijn lichaam wil niet meer. Op dit moment zit ik in de ziektewet, ik heb last van mijn botten."', en:'"My body cannot take it anymore. At the moment I am on sick leave — I have problems with my bones."' },
+        { nl:'Ruud kreeg bij zijn omscholing hulp van zowel werkgever Jeurissen als van adviescentrum Valedo.', en:'Ruud received help with his retraining from both his employer Jeurissen and advisory centre Valedo.' },
+      ]},
+      { heading:'Grip op eigen loopbaan', sentences:[
+        { nl:'Ruud nam het initiatief tot omscholing zelf.', en:'Ruud took the initiative to retrain himself.' },
+        { nl:'"Voor de kerst zei ik tegen mijn vrouw: het gaat niet meer."', en:'"Before Christmas I told my wife: it is not working anymore."' },
+        { nl:'"Ik las op internet een advertentie voor een opleiding tot rij-instructeur."', en:'"I read an advertisement online for a training course to become a driving instructor."' },
+        { nl:'"De cursus startte begin dit jaar."', en:'"The course started at the beginning of this year."' },
+        { nl:'"Toen ben ik ook in gesprek gegaan met Joke Hermans, personeelsadviseur bij Jeurissen, met de mededeling dat ik binnenkort wil stoppen."', en:'"I then also started talks with Joke Hermans, HR adviser at Jeurissen, to tell her I wanted to stop soon."' },
+        { nl:'"Ik ga dan met vervroegd pensioen. Maar ik ben geen stilzitter, dus mijn baan als rij-instructeur doe ik er gewoon naast."', en:'"I will then take early retirement. But I am not one to sit still, so I will simply do my job as a driving instructor on the side."' },
+        { nl:'Joke noemt Ruud een prachtig voorbeeld van iemand die regie pakt op zijn loopbaan.', en:'Joke calls Ruud a wonderful example of someone who takes control of his own career.' },
+        { nl:'"Ondanks dat Ruud ons wat later in het proces heeft betrokken, hebben we alsnog een traject in gang kunnen zetten."', en:'"Despite Ruud involving us somewhat later in the process, we were still able to set a path in motion."' },
+      ]},
+      { heading:null, sentences:[
+        { nl:'Joke zocht contact met Valedo en legde hen de situatie voor.', en:'Joke contacted Valedo and explained the situation to them.' },
+        { nl:'Zij zochten contact met Ruud, er werden gesprekken gevoerd en vragenlijsten ingevuld.', en:'They contacted Ruud, conversations were held and questionnaires were completed.' },
+        { nl:'"Valedo heeft mij goed geadviseerd. Ik krijg een deel van de opleiding betaald en dat is mooi meegenomen", aldus Ruud.', en:'"Valedo gave me good advice. I have part of the training paid for, which is a nice bonus," says Ruud.' },
+        { nl:'Ook krijgt hij van zijn huidige werkgever onder andere de examendagen cadeau.', en:'His current employer also gives him, among other things, the exam days as a gift.' },
+        { nl:'Joke: "Ruud heeft altijd goed voor Jeurissen gezorgd, natuurlijk zorgen wij nu het nodig is ook goed voor Ruud."', en:'Joke: "Ruud has always taken good care of Jeurissen — naturally we now take good care of Ruud when he needs it."' },
+        { nl:'"Wij gunnen Ruud nog een plezierig werkzaam leven."', en:'"We wish Ruud many more enjoyable working years."' },
+      ]},
+      { heading:'Denk op tijd na over je toekomst', sentences:[
+        { nl:'Ruud vindt het een goede zaak dat mensen in de sector regelmatig medisch onderzocht worden.', en:'Ruud thinks it is a good thing that people in the sector are regularly given medical check-ups.' },
+        { nl:'"Dat geldt zeker voor de zware beroepen."', en:'"That certainly applies to the heavy professions."' },
+        { nl:'Het adviesgesprek is volgens Ruud een goede aanvulling op het medisch onderzoek.', en:'According to Ruud, the advice interview is a good complement to the medical examination.' },
+        { nl:'"Denk zo vroeg mogelijk na of je je werk over 20 jaar nog kunt uitvoeren."', en:'"Think as early as possible about whether you will still be able to do your job in 20 years."' },
+        { nl:'"Zo niet, ga iets anders doen, nu het nog kan. Hoe eerder je je ervan bewust bent, hoe beter."', en:'"If not, do something else while you still can. The sooner you are aware of it, the better."' },
+        { nl:'"Ik heb een collega van 35 jaar, die al geopereerd is aan zijn rug."', en:'"I have a 35-year-old colleague who has already had an operation on his back."' },
+        { nl:'"Hij moet nog zeker 30 jaar, maar houdt dat in dit beroep waarschijnlijk niet vol."', en:'"He still has at least 30 years to go, but he will probably not be able to keep that up in this profession."' },
+        { nl:'"Voor de zware beroepen is dat niet te doen. Ik heb 45 jaar gewerkt als timmerman en dat merk ik nu."', en:'"For the heavy professions that is not manageable. I worked 45 years as a carpenter and I feel it now."' },
+      ]},
+      { heading:'Bewustwording', sentences:[
+        { nl:"Waar volgens Ruud nog winst is te behalen, is mensen bewust maken van de mogelijkheden.", en:'Where Ruud sees room for improvement is in making people aware of the possibilities.' },
+        { nl:'"Het is een zaak van opletten en nadenken over je eigen gezondheid."', en:'"It is a matter of paying attention and thinking about your own health."' },
+        { nl:'"Ik heb collega\'s die er lacherig over doen, die denken dat het niet voor hen geldt."', en:'"I have colleagues who laugh about it and think it does not apply to them."' },
+        { nl:'"Ook is niet iedereen in staat om te leren. Ik merk zelf ook dat het op deze leeftijd lastig is."', en:'"Also, not everyone is capable of learning. I notice myself that it is difficult at this age."' },
+        { nl:'"Maar als je heel goed je best doet, lukt het echt wel."', en:'"But if you really try your hardest, you can genuinely do it."' },
+        { nl:'Joke complimenteert Ruud voor het feit dat hij deze stap heeft genomen.', en:'Joke compliments Ruud for taking this step.' },
+        { nl:'"Heel veel medewerkers in de leeftijdscategorie van Ruud zijn afwachtend."', en:'"A great many employees in Ruud\'s age group are passive and wait to see what happens."' },
+        { nl:'"Het zijn mensen die met 15, 16 jaar zijn begonnen met werken in de bouw."', en:'"These are people who started working in construction at the age of 15 or 16."' },
+        { nl:'"Ze hebben altijd fysiek werk gedaan, in de veronderstelling dat ze na 40 dienstjaren kunnen stoppen."', en:'"They have always done physical work, assuming they would be able to stop after 40 years of service."' },
+        { nl:'"Die leeftijd schuift steeds verder op."', en:'"That retirement age keeps moving further and further away."' },
+        { nl:'"Ook Ruud wilde én moest door, maar kon dat niet meer in zijn huidige werk."', en:'"Ruud too wanted and had to keep going, but could no longer do so in his current job."' },
+        { nl:'"Zijn omscholing heeft tot een prachtige samenwerking geleid."', en:'"His retraining has led to a wonderful collaboration."' },
+      ]},
+    ],
+    questions:[
+      { q:'Wat voor organisatie is Jeurissen?',
+        qEn:'What kind of organisation is Jeurissen?',
+        opts:['de instelling waar Ruud zijn opleiding tot rij-instructeur volgt','de rijschool waar Ruud binnenkort zal gaan werken','het bedrijf waar Ruud momenteel als timmerman werkt'],
+        optsEn:['the institution where Ruud is following his training to become a driving instructor','the driving school where Ruud will soon go to work','the company where Ruud currently works as a carpenter'],
+        answer:2, explanation:'Jeurissen is Ruud\'s current employer where he works as a carpenter. His training takes place elsewhere, and the text does not describe Jeurissen as a driving school.' },
+      { q:'Wat vindt Ruud van medische onderzoeken in de bouwsector?',
+        qEn:'What does Ruud think about medical check-ups in the construction sector?',
+        opts:['Hij vindt de onderzoeken bijzonder nuttig voor mensen die zwaar werk doen.','Hij vindt het lastig dat jonge werknemers niet vaak genoeg onderzocht worden.','Hij vindt medische onderzoeken minder belangrijk dan adviesgesprekken.'],
+        optsEn:['He finds the check-ups particularly useful for people who do heavy work.','He finds it difficult that young workers are not examined often enough.','He finds medical check-ups less important than advice interviews.'],
+        answer:2, explanation:'Ruud finds medical check-ups good, but the advice interview is a "good complement" — meaning he values it more. Young workers are not mentioned.' },
+      { q:'Wat wil Ruud duidelijk maken met het voorbeeld van zijn collega van 35 jaar?',
+        qEn:'What does Ruud want to make clear with the example of his 35-year-old colleague?',
+        opts:['dat er mensen zijn die geen ander werk kunnen vinden','dat mensen beter geen beroep in de bouw kunnen kiezen','dat mensen zware beroepen soms niet lang kunnen uitoefenen'],
+        optsEn:['that there are people who cannot find other work','that people had better not choose a profession in construction','that people sometimes cannot practise heavy professions for long'],
+        answer:2, explanation:'The 35-year-old has already had back surgery and will probably not be able to keep going in this profession — showing that heavy jobs cannot always be sustained for a long time.' },
+      { q:'Wat vindt Ruud ervan dat hij nieuwe dingen moet leren tijdens zijn omscholing?',
+        qEn:'What does Ruud think about having to learn new things during his retraining?',
+        opts:['Het is even volhouden, maar met hard werken lukt het hem.','Het is lang geleden dat hij moest leren, maar hij vindt het makkelijk.','Hij vindt het leuk, maar hij vindt zichzelf er eigenlijk te oud voor.'],
+        optsEn:['It takes perseverance, but with hard work he can manage it.','It has been a long time since he had to study, but he finds it easy.','He finds it enjoyable, but he actually thinks he is too old for it.'],
+        answer:0, explanation:'"If you really try your hardest, you can genuinely do it." It is hard but manageable. He does not say it is easy (B) or that he feels too old (C).' },
+      { q:'Waarin verschilt Ruud van andere mensen met een zwaar beroep, volgens Joke Hermans?',
+        qEn:'In what way does Ruud differ from other people with a heavy profession, according to Joke Hermans?',
+        opts:['Ruud heeft vrij lang gewacht voor hij zich liet omscholen.','Ruud is later dan gemiddeld begonnen met zijn beroep.','Ruud is zelf in actie gekomen om ander werk te vinden.'],
+        optsEn:['Ruud waited quite a long time before having himself retrained.','Ruud started his profession later than average.','Ruud took action himself to find other work.'],
+        answer:2, explanation:'Joke calls Ruud a wonderful example of someone who takes control of his own career. Most people in his age group are passive — Ruud acted himself.' },
+      { q:'Wat is het doel van deze tekst?',
+        qEn:'What is the purpose of this text?',
+        opts:['de lezer enthousiast maken over omscholing door een voorbeeld te geven','de lezer laten beseffen dat een omscholing meestal veel tijd en moeite kost','de lezer uitleggen dat niet iedereen zich zomaar kan laten omscholen'],
+        optsEn:['to enthuse the reader about retraining by giving an example','to make the reader realise that retraining usually takes a lot of time and effort','to explain to the reader that not everyone can simply have themselves retrained'],
+        answer:0, explanation:'The text is positive and inspiring. Ruud is the example showing that retraining is possible. The tone encourages taking action in time.' },
+    ]
+  },
+  {
+    id:'huilen', icon:'😢',
+    title:'Een potje huilen',
+    meta:'NT2-I 2025 · tekst 2 · vragen 7–12',
+    context:'Deze tekst komt van een website over gezondheid.',
+    sections:[
+      { heading:null, sentences:[
+        { nl:'Huilen wordt in onze Westerse maatschappij meestal niet zo gewaardeerd.', en:'Crying is generally not highly regarded in our Western society.' },
+        { nl:'Het wordt vaak gezien als een teken van zwakte, dus die tranen kun je maar beter inhouden.', en:'It is often seen as a sign of weakness, so you had better hold back those tears.' },
+        { nl:'In Japan kijken veel mensen heel anders tegen huilen aan.', en:'In Japan, many people have a very different attitude towards crying.' },
+        { nl:'Huilen wordt daar soms zelfs aangemoedigd om stress en spanning los te laten.', en:'Crying is sometimes even encouraged there as a way to release stress and tension.' },
+        { nl:'Zo heb je er speciale huilclubs waar je naar huilfilms kunt kijken.', en:'There are even special crying clubs where you can watch tearjerker films.' },
+        { nl:'Lees verder voor een paar leuke weetjes over huilen en een kleine ode aan een traantje op zijn tijd.', en:'Read on for some interesting facts about crying and a small tribute to the occasional tear.' },
+      ]},
+      { heading:'Alleen mensen huilen van emotie', sentences:[
+        { nl:'Dieren hebben ook traanklieren, maar je zal ze niet zien huilen van emotie.', en:'Animals also have tear glands, but you will not see them cry from emotion.' },
+        { nl:'De traanklieren bij dieren zitten er om stofjes en bacteriën uit de ogen te spoelen.', en:'The tear glands in animals are there to wash out particles and bacteria from the eyes.' },
+        { nl:'De traanklieren van mensen kunnen door verschillende dingen worden geactiveerd, bijvoorbeeld als rook of de damp van gesneden uien de traanklieren irriteert.', en:'Human tear glands can be activated by various things, for example when smoke or the vapour from cut onions irritates the tear glands.' },
+        { nl:'Ook als er iets in je oog komt, wordt er meteen traanvocht geproduceerd om het oog zo snel mogelijk schoon te spoelen.', en:'Also when something gets into your eye, tear fluid is immediately produced to rinse the eye clean as quickly as possible.' },
+        { nl:'Maar huilen van emotie, dat is iets wat alleen wij mensen doen.', en:'But crying from emotion is something that only we humans do.' },
+        { nl:'Zo kun je huilen van verdriet, woede of schaamte, maar ook als je overweldigd bent door gevoelens van geluk en vreugde of als je heel veel fysieke pijn hebt.', en:'You can cry from sadness, anger or shame, but also when you are overwhelmed by feelings of happiness and joy, or when you are in a great deal of physical pain.' },
+        { nl:'Zien huilen doet soms ook huilen, de sterke emotie van een ander raakt dan je eigen emoties.', en:'Seeing someone cry can sometimes make you cry too — the strong emotion of another person touches your own emotions.' },
+      ]},
+      { heading:'Huilen als communicatiemiddel', sentences:[
+        { nl:'Huilen heeft evolutionair gezien een heel duidelijke communicatiefunctie.', en:'From an evolutionary perspective, crying has a very clear communicative function.' },
+        { nl:'Pasgeboren baby\'s zijn volledig afhankelijk van hun ouders, en door naast te schreeuwen ook te huilen komt de boodschap duidelijk aan: Help mij, ik ben hulpeloos!', en:'Newborn babies are completely dependent on their parents, and by crying in addition to screaming the message comes across clearly: Help me, I am helpless!' },
+        { nl:'Gedragswetenschappers geven aan dat huilen bij volwassenen ook die functie heeft.', en:'Behavioural scientists indicate that crying in adults serves the same function.' },
+        { nl:'Als anderen je zien huilen, geeft dat een duidelijk signaal af dat je hulp nodig hebt.', en:'When others see you cry, it sends a clear signal that you need help.' },
+        { nl:'Vaak word je dan ook snel getroost als je in het openbaar huilt.', en:'You are often quickly comforted when you cry in public.' },
+      ]},
+      { heading:'Vrouwen huilen meer dan mannen', sentences:[
+        { nl:'Vrouwen huilen gemiddeld zo\'n twintig tot vijftig keer per jaar en mannen maar zo\'n vijf tot twintig keer.', en:'Women cry on average around twenty to fifty times a year, and men only around five to twenty times.' },
+        { nl:'Als je dat op een heel leven bekijkt, is dat voor vrouwen 16 maanden huilen!', en:'If you look at that over a whole lifetime, that amounts to 16 months of crying for women!' },
+        { nl:'Het is maar goed dat die huilbuien in tussenpozen komen, want je zou er compleet van uitdrogen.', en:'It is just as well that those crying fits come at intervals, because you would completely dry out otherwise.' },
+        { nl:'Dat vrouwen meer huilen heeft te maken met de verschillende hormonen die mannen en vrouwen aanmaken.', en:'The fact that women cry more is related to the different hormones that men and women produce.' },
+        { nl:'Zo hebben mannen meer testosteron in hun lichaam, wat een soort drempel vormt om te huilen.', en:'Men have more testosterone in their bodies, which forms a kind of threshold for crying.' },
+        { nl:'Vrouwen hebben juist door de aanwezigheid van het hormoon prolactine een lagere drempel om te huilen.', en:'Women, on the other hand, have a lower threshold for crying precisely because of the presence of the hormone prolactin.' },
+        { nl:'Ook zijn de traanbuizen (kleine buisjes die de tranen afvoeren) van mannen kleiner dan die van vrouwen, waardoor ze moeilijker kunnen huilen.', en:'Also, the tear ducts (small tubes that drain the tears) of men are smaller than those of women, which makes it harder for them to cry.' },
+      ]},
+      { heading:'Waarom lucht huilen zo op?', sentences:[
+        { nl:'Iedereen weet hoe huilen kan opluchten.', en:'Everyone knows how crying can bring relief.' },
+        { nl:'Soms loop je al een tijd rond met een knoop in je maag, of ben je boos of verdrietig.', en:'Sometimes you have been walking around for a while with a knot in your stomach, or you are angry or sad.' },
+        { nl:'Veel mensen zullen wel herkennen dat je soms niet eens precies weet waarom je huilt, maar dat je juist vaak tijdens het huilen erachter komt wat je nou precies dwarszit.', en:'Many people will recognise that you sometimes do not even know exactly why you are crying, but that you often discover during the crying itself what is really bothering you.' },
+        { nl:'Het is wel bijzonder om te weten dat tranen veroorzaakt door irritatie van de ogen een heel andere samenstelling hebben dan tranen van emotie.', en:'It is quite remarkable to know that tears caused by irritation of the eyes have a completely different composition from tears of emotion.' },
+        { nl:'Die laatste bevatten namelijk hormonen met een pijnstillende werking zoals prolactine, corticotropine en leucine.', en:'The latter actually contain hormones with a pain-relieving effect, such as prolactin, corticotropin and leucine.' },
+        { nl:'Ook komen er tijdens het huilen in het lichaam zelf gelukshormonen vrij, zoals endorfinen, die je kalm maken.', en:'During crying, happiness hormones such as endorphins are also released in the body itself, which calm you down.' },
+      ]},
+      { heading:'Huilen mag!', sentences:[
+        { nl:'Het is jammer dat huilen zo vaak als een teken van zwakte wordt gezien, zeker mannen worden geacht altijd maar sterk te zijn en niet te huilen.', en:'It is a shame that crying is so often seen as a sign of weakness — men in particular are expected to always be strong and not cry.' },
+        { nl:'Eigenlijk zonde, want als je lange tijd je gevoelens onderdrukt en niet huilt als je wel de behoefte hebt, dan raak je het contact met je emoties een stuk kwijt.', en:'Actually a pity, because if you suppress your feelings for a long time and do not cry when you feel the need, you gradually lose touch with your emotions.' },
+        { nl:'Natuurlijk hoef je nu niet meteen om elk wissewasje in huilen uit te barsten, maar loop je een beetje op je tenen of heb je veel stress?', en:'Of course you do not need to burst into tears over every little thing, but are you feeling a bit on edge or under a lot of stress?' },
+        { nl:'Kijk eens of het je lukt een potje te huilen.', en:'See if you can manage to have a good cry.' },
+      ]},
+    ],
+    questions:[
+      { q:'Wat is het verschil tussen dieren en mensen als het om huilen gaat?',
+        qEn:'What is the difference between animals and humans when it comes to crying?',
+        opts:['Bij pijnlijke ogen maken mensen veel sneller traanvocht aan dan dieren.','Dieren huilen alleen bij lichamelijke pijn, mensen ook bij vervelende ervaringen.','Mensen huilen door positieve of negatieve gevoelens, dieren doen dat niet.'],
+        optsEn:['When their eyes are painful, humans produce tear fluid much faster than animals.','Animals only cry from physical pain, humans also from unpleasant experiences.','Humans cry because of positive or negative feelings — animals do not.'],
+        answer:2, explanation:'The text says that crying from emotion is something only humans do. Animals have tear glands but only to flush out particles and bacteria, not from feelings.' },
+      { q:'Wat zegt de schrijver over pasgeboren baby\'s die huilen?',
+        qEn:'What does the writer say about newborn babies who cry?',
+        opts:['Bij hen heeft huilen dezelfde functie als bij huilende volwassenen.','Voor hen heeft huilen meer nut dan wanneer volwassenen huilen.','Zij worden als ze in het openbaar huilen sneller getroost door hun ouders.'],
+        optsEn:['For them, crying has the same function as for crying adults.','For them, crying is more useful than when adults cry.','When they cry in public, they are comforted more quickly by their parents.'],
+        answer:0, explanation:'The text says behavioural scientists indicate that crying in adults also has the same communicative function as in babies — to signal that you need help.' },
+      { q:'Waarom huilen vrouwen meer dan mannen?',
+        qEn:'Why do women cry more than men?',
+        opts:['alleen door verschillen in hormonen tussen mannen en vrouwen','alleen door verschillen in de traanbuizen van mannen en vrouwen','zowel door verschillen in hormonen als door verschillen in traanbuizen'],
+        optsEn:['only because of hormonal differences between men and women','only because of differences in the tear ducts of men and women','both because of hormonal differences and because of differences in tear ducts'],
+        answer:2, explanation:'The text mentions both: hormones (testosterone and prolactin) AND the smaller tear ducts in men — both factors contribute.' },
+      { q:'Wat voor functie hebben gelukshormonen, volgens de tekst?',
+        qEn:'What function do happiness hormones have, according to the text?',
+        opts:['Ze helpen lichamelijke pijn te verminderen.','Ze verwijderen endorfine uit het lichaam.','Ze zorgen ervoor dat je rustiger wordt.'],
+        optsEn:['They help reduce physical pain.','They remove endorphins from the body.','They make you calmer.'],
+        answer:2, explanation:'The text says endorphins are released during crying and "calm you down" (kalm maken) — making you more relaxed. Option A describes pain-relieving hormones, not happiness hormones.' },
+      { q:'Welke zin vat de mening van de schrijver het beste samen?',
+        qEn:'Which sentence best summarises the writer\'s opinion?',
+        opts:['Huilen is gezond, dus het is niet erg om het soms te doen.','Huilen is nuttig, maar alleen als je je slecht voelt of pijn hebt.','Pas op met huilen, want mensen kunnen het als zwakte zien.'],
+        optsEn:['Crying is healthy, so it is fine to do it sometimes.','Crying is useful, but only when you feel bad or are in pain.','Be careful about crying, because people may see it as weakness.'],
+        answer:0, explanation:'The section "Huilen mag!" and the closing advice to try having a good cry show the writer thinks crying is healthy and should be accepted — not something to avoid.' },
+      { q:'Wat is het doel van deze tekst?',
+        qEn:'What is the purpose of this text?',
+        opts:['de lezer informeren over verschillende feiten over huilen','de lezer vertellen wanneer het gepast is om te huilen','de lezer waarschuwen voor de effecten van huilen'],
+        optsEn:['to inform the reader about various facts about crying','to tell the reader when it is appropriate to cry','to warn the reader about the effects of crying'],
+        answer:0, explanation:'The text presents facts about crying (tear glands, hormones, statistics) alongside a positive message — its main purpose is to inform and reassure.' },
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════
+//  TEKSTEN LIST + READER
+// ═══════════════════════════════════════════
+function renderTekstenList() {
+  const el = document.getElementById('teksten-list');
+  if (!el) return;
+  el.innerHTML = TEKSTEN.map(t => `
+    <div class="tekst-card" onclick="openTekst('${t.id}')">
+      <div class="tekst-card-icon">${t.icon}</div>
+      <div class="tekst-card-body">
+        <div class="tekst-card-title">${t.title}</div>
+        <div class="tekst-card-meta">${t.meta}</div>
+      </div>
+      <div class="tekst-card-arrow">›</div>
+    </div>`).join('');
+}
+
+let _sentCounter = 0;
+function openTekst(id) {
+  const t = TEKSTEN.find(x => x.id === id);
+  if (!t) return;
+  document.getElementById('reader-title').textContent = t.title;
+  _sentCounter = 0;
+  const sectionsHtml = t.sections.map(s => {
+    const parasHtml = s.sentences.map(sent => {
+      const sid = 'rs-' + (_sentCounter++);
+      return `<span class="r-sent" onclick="toggleRSent(this,'${sid}')">${sent.nl}</span><div class="r-sent-en" id="${sid}">${sent.en}</div> `;
+    }).join('');
+    return `${s.heading ? `<div class="reader-heading">${s.heading}</div>` : ''}<div class="reader-para">${parasHtml}</div>`;
+  }).join('');
+  const qsHtml = t.questions.map((q, qi) => `
+    <div class="reader-q" id="rq-${id}-${qi}">
+      <div class="reader-q-row">
+        <div class="reader-q-text">${qi+1}. ${q.q}</div>
+        <button class="reader-q-flag" onclick="toggleRQen('rqen-${id}-${qi}')">🇬🇧</button>
+      </div>
+      ${q.opts.map((o, oi) => `
+        <div class="reader-opt" onclick="answerQ('${id}',${qi},${oi})">
+          <span class="reader-opt-letter">${'ABC'[oi]}</span>
+          <span>${o}</span>
+        </div>`).join('')}
+      <div class="reader-feedback" id="rfb-${id}-${qi}"></div>
+      <div class="reader-en-block" id="rqen-${id}-${qi}">
+        <div class="reader-en-q">${q.qEn}</div>
+        ${q.optsEn.map((o,oi) => `<div class="reader-en-opt"><span class="reader-en-opt-letter">${'ABC'[oi]}</span><span>${o}</span></div>`).join('')}
+      </div>
+    </div>`).join('');
+  document.getElementById('reader-body').innerHTML = `
+    <div class="reader-context">${t.context}</div>
+    <div style="margin:12px 16px 0;background:#fff;border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 1px 6px rgba(101,72,212,.08);padding-bottom:4px">
+      <div class="reader-section-label">Tekst — tik een zin voor de vertaling</div>
+      ${sectionsHtml}
+    </div>
+    <div class="reader-divider" style="margin:16px 16px 0"></div>
+    <div class="reader-qs" style="margin:0 16px 16px;border-radius:var(--radius);border:1px solid var(--border)">
+      <div class="reader-qs-title">Vragen 1–${t.questions.length} · 🇬🇧 toont/verbergt vertaling</div>
+      ${qsHtml}
+    </div>`;
+  showPage('reader');
+}
+
+function toggleRSent(el, id) {
+  const en = document.getElementById(id);
+  const isOpen = en.classList.contains('show');
+  document.querySelectorAll('.r-sent-en.show').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.r-sent.open').forEach(e => e.classList.remove('open'));
+  if (!isOpen) { en.classList.add('show'); el.classList.add('open'); }
+}
+
+function toggleRQen(id) {
+  document.getElementById(id).classList.toggle('show');
+}
+
+function answerQ(textId, qi, chosen) {
+  const t = TEKSTEN.find(x => x.id === textId);
+  const q = t.questions[qi];
+  const block = document.getElementById(`rq-${textId}-${qi}`);
+  const fb    = document.getElementById(`rfb-${textId}-${qi}`);
+  if (!block || !fb || block.dataset.answered) return;
+  block.dataset.answered = '1';
+  const isRight = chosen === q.answer;
+  block.querySelectorAll('.reader-opt').forEach((el, oi) => {
+    el.onclick = null;
+    if (oi === q.answer) el.classList.add('correct');
+    else if (oi === chosen && !isRight) el.classList.add('wrong');
+  });
+  fb.className = 'reader-feedback show ' + (isRight ? 'correct' : 'wrong');
+  fb.textContent = isRight ? '✓ Correct!' : `✗ Fout. ${q.explanation}`;
+}
+
 // ═══════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════
+
+// ═══════════════════════════════════════════
+//  SENTENCE READER — from TEKSTEN data
+// ═══════════════════════════════════════════
+// Flatten all sentences from all texts into one ordered list,
+// enriched with the A1_BANK keyword data where available
+let sentIdx = 0;
+let sentEnVisible = false;
+let SENT_LIST = [];
+
+// Words to highlight per sentence — sourced from A1_BANK
+const SENT_HIGHLIGHTS = {
+  // ── Ruud wordt rij-instructeur ──
+  'Ruud Kaag is timmerman en al sinds zijn 17e werkzaam in de bouwsector.': {words:['timmerman','bouwsector']},
+  'Zijn beroep als timmerman heeft hij 45 jaar uitgevoerd.': {words:['beroep','uitgevoerd']},
+  'Binnenkort stopt hij echter bij zijn huidige werkgever.': {words:['werkgever','stopt']},
+  'Ondertussen volgt hij een opleiding tot rij-instructeur.': {words:['opleiding','rij-instructeur']},
+  'Een hele omslag op die leeftijd, maar voor Ruud was er geen andere optie.': {words:['omslag','optie']},
+  '\"Mijn lichaam wil niet meer. Op dit moment zit ik in de ziektewet, ik heb last van mijn botten.\"': {words:['ziektewet','lichaam']},
+  'Ruud kreeg bij zijn omscholing hulp van zowel werkgever Jeurissen als van adviescentrum Valedo.': {words:['omscholing','adviescentrum']},
+  'Ruud nam het initiatief tot omscholing zelf.': {words:['initiatief','omscholing']},
+  '\"Voor de kerst zei ik tegen mijn vrouw: het gaat niet meer.\"': {words:['kerst','niet meer']},
+  '\"Ik las op internet een advertentie voor een opleiding tot rij-instructeur.\"': {words:['advertentie','opleiding']},
+  '\"De cursus startte begin dit jaar.\"': {words:['cursus','startte']},
+  '\"Toen ben ik ook in gesprek gegaan met Joke Hermans, personeelsadviseur bij Jeurissen, met de mededeling dat ik binnenkort wil stoppen.\"': {words:['personeelsadviseur','mededeling']},
+  '\"Ik ga dan met vervroegd pensioen. Maar ik ben geen stilzitter, dus mijn baan als rij-instructeur doe ik er gewoon naast.\"': {words:['vervroegd pensioen','stilzitter']},
+  'Joke noemt Ruud een prachtig voorbeeld van iemand die regie pakt op zijn loopbaan.': {words:['regie','loopbaan']},
+  '\"Ondanks dat Ruud ons wat later in het proces heeft betrokken, hebben we alsnog een traject in gang kunnen zetten.\"': {words:['betrokken','traject']},
+  'Joke zocht contact met Valedo en legde hen de situatie voor.': {words:['contact','situatie']},
+  'Zij zochten contact met Ruud, er werden gesprekken gevoerd en vragenlijsten ingevuld.': {words:['gesprekken','vragenlijsten']},
+  '\"Valedo heeft mij goed geadviseerd. Ik krijg een deel van de opleiding betaald en dat is mooi meegenomen\", aldus Ruud.': {words:['geadviseerd','meegenomen']},
+  'Ook krijgt hij van zijn huidige werkgever onder andere de examendagen cadeau.': {words:['werkgever','examendagen']},
+  'Joke: \"Ruud heeft altijd goed voor Jeurissen gezorgd, natuurlijk zorgen wij nu het nodig is ook goed voor Ruud.\"': {words:['gezorgd','nodig']},
+  '\"Wij gunnen Ruud nog een plezierig werkzaam leven.\"': {words:['gunnen','werkzaam']},
+  'Ruud vindt het een goede zaak dat mensen in de sector regelmatig medisch onderzocht worden.': {words:['sector','medisch onderzocht']},
+  '\"Dat geldt zeker voor de zware beroepen.\"': {words:['geldt','zware beroepen']},
+  'Het adviesgesprek is volgens Ruud een goede aanvulling op het medisch onderzoek.': {words:['adviesgesprek','aanvulling']},
+  '\"Denk zo vroeg mogelijk na of je je werk over 20 jaar nog kunt uitvoeren.\"': {words:['vroeg mogelijk','uitvoeren']},
+  '\"Zo niet, ga iets anders doen, nu het nog kan. Hoe eerder je je ervan bewust bent, hoe beter.\"': {words:['bewust','eerder']},
+  '\"Ik heb een collega van 35 jaar, die al geopereerd is aan zijn rug.\"': {words:['collega','geopereerd']},
+  '\"Hij moet nog zeker 30 jaar, maar houdt dat in dit beroep waarschijnlijk niet vol.\"': {words:['beroep','niet vol']},
+  '\"Voor de zware beroepen is dat niet te doen. Ik heb 45 jaar gewerkt als timmerman en dat merk ik nu.\"': {words:['zware beroepen','timmerman']},
+  '\"Het is een zaak van opletten en nadenken over je eigen gezondheid.\"': {words:['opletten','gezondheid']},
+  '\"Ook is niet iedereen in staat om te leren. Ik merk zelf ook dat het op deze leeftijd lastig is.\"': {words:['in staat','leeftijd']},
+  '\"Maar als je heel goed je best doet, lukt het echt wel.\"': {words:['best doen','lukt']},
+  'Joke complimenteert Ruud voor het feit dat hij deze stap heeft genomen.': {words:['complimenteert','stap']},
+  '\"Heel veel medewerkers in de leeftijdscategorie van Ruud zijn afwachtend.\"': {words:['medewerkers','afwachtend']},
+  '\"Het zijn mensen die met 15, 16 jaar zijn begonnen met werken in de bouw.\"': {words:['begonnen','bouw']},
+  '\"Ze hebben altijd fysiek werk gedaan, in de veronderstelling dat ze na 40 dienstjaren kunnen stoppen.\"': {words:['veronderstelling','dienstjaren']},
+  '\"Die leeftijd schuift steeds verder op.\"': {words:['leeftijd','schuift op']},
+  '\"Ook Ruud wilde én moest door, maar kon dat niet meer in zijn huidige werk.\"': {words:['moest door','huidige werk']},
+  '\"Zijn omscholing heeft tot een prachtige samenwerking geleid.\"': {words:['omscholing','samenwerking']},
+  // ── Een potje huilen ──
+  'Huilen wordt in onze Westerse maatschappij meestal niet zo gewaardeerd.': {words:['maatschappij','gewaardeerd']},
+  'Het wordt vaak gezien als een teken van zwakte, dus die tranen kun je maar beter inhouden.': {words:['zwakte','inhouden']},
+  'In Japan kijken veel mensen heel anders tegen huilen aan.': {words:['anders','tegen huilen aan']},
+  'Huilen wordt daar soms zelfs aangemoedigd om stress en spanning los te laten.': {words:['aangemoedigd','spanning']},
+  'Zo heb je er speciale huilclubs waar je naar huilfilms kunt kijken.': {words:['huilclubs','huilfilms']},
+  'Lees verder voor een paar leuke weetjes over huilen en een kleine ode aan een traantje op zijn tijd.': {words:['weetjes','ode']},
+  'Dieren hebben ook traanklieren, maar je zal ze niet zien huilen van emotie.': {words:['traanklieren','emotie']},
+  'De traanklieren bij dieren zitten er om stofjes en bacteriën uit de ogen te spoelen.': {words:['stofjes','spoelen']},
+  'De traanklieren van mensen kunnen door verschillende dingen worden geactiveerd, bijvoorbeeld als rook of de damp van gesneden uien de traanklieren irriteert.': {words:['geactiveerd','irriteert']},
+  'Ook als er iets in je oog komt, wordt er meteen traanvocht geproduceerd om het oog zo snel mogelijk schoon te spoelen.': {words:['traanvocht','geproduceerd']},
+  'Maar huilen van emotie, dat is iets wat alleen wij mensen doen.': {words:['emotie','alleen mensen']},
+  'Zo kun je huilen van verdriet, woede of schaamte, maar ook als je overweldigd bent door gevoelens van geluk en vreugde of als je heel veel fysieke pijn hebt.': {words:['overweldigd','schaamte']},
+  'Zien huilen doet soms ook huilen, de sterke emotie van een ander raakt dan je eigen emoties.': {words:['sterke emotie','raakt']},
+  'Huilen heeft evolutionair gezien een heel duidelijke communicatiefunctie.': {words:['evolutionair','communicatiefunctie']},
+  'Gedragswetenschappers geven aan dat huilen bij volwassenen ook die functie heeft.': {words:['gedragswetenschappers','volwassenen']},
+  'Als anderen je zien huilen, geeft dat een duidelijk signaal af dat je hulp nodig hebt.': {words:['signaal','hulp nodig']},
+  'Vaak word je dan ook snel getroost als je in het openbaar huilt.': {words:['getroost','openbaar']},
+  'Als je dat op een heel leven bekijkt, is dat voor vrouwen 16 maanden huilen!': {words:['leven','maanden']},
+  'Het is maar goed dat die huilbuien in tussenpozen komen, want je zou er compleet van uitdrogen.': {words:['huilbuien','uitdrogen']},
+  'Dat vrouwen meer huilen heeft te maken met de verschillende hormonen die mannen en vrouwen aanmaken.': {words:['hormonen','aanmaken']},
+  'Zo hebben mannen meer testosteron in hun lichaam, wat een soort drempel vormt om te huilen.': {words:['testosteron','drempel']},
+  'Vrouwen hebben juist door de aanwezigheid van het hormoon prolactine een lagere drempel om te huilen.': {words:['prolactine','aanwezigheid']},
+  'Ook zijn de traanbuizen (kleine buisjes die de tranen afvoeren) van mannen kleiner dan die van vrouwen, waardoor ze moeilijker kunnen huilen.': {words:['traanbuizen','afvoeren']},
+  'Iedereen weet hoe huilen kan opluchten.': {words:['opluchten']},
+  'Soms loop je al een tijd rond met een knoop in je maag, of ben je boos of verdrietig.': {words:['knoop in je maag','verdrietig']},
+  'Veel mensen zullen wel herkennen dat je soms niet eens precies weet waarom je huilt, maar dat je juist vaak tijdens het huilen erachter komt wat je nou precies dwarszit.': {words:['herkennen','dwarszit']},
+  'Het is wel bijzonder om te weten dat tranen veroorzaakt door irritatie van de ogen een heel andere samenstelling hebben dan tranen van emotie.': {words:['samenstelling','irritatie']},
+  'Die laatste bevatten namelijk hormonen met een pijnstillende werking zoals prolactine, corticotropine en leucine.': {words:['pijnstillende werking','hormonen']},
+  'Ook komen er tijdens het huilen in het lichaam zelf gelukshormonen vrij, zoals endorfinen, die je kalm maken.': {words:['gelukshormonen','endorfinen']},
+  'Het is jammer dat huilen zo vaak als een teken van zwakte wordt gezien, zeker mannen worden geacht altijd maar sterk te zijn en niet te huilen.': {words:['geacht','zwakte']},
+  'Eigenlijk zonde, want als je lange tijd je gevoelens onderdrukt en niet huilt als je wel de behoefte hebt, dan raak je het contact met je emoties een stuk kwijt.': {words:['onderdrukt','behoefte']},
+  'Natuurlijk hoef je nu niet meteen om elk wissewasje in huilen uit te barsten, maar loop je een beetje op je tenen of heb je veel stress?': {words:['wissewasje','op je tenen']},
+  'Kijk eens of het je lukt een potje te huilen.': {words:['lukt','potje huilen']},
+};
+
+let currentTextId = null; // null = first text by default
+
+function populateSentSelector() {
+  const sel = document.getElementById('sent-text-selector');
+  if (!sel) return;
+  sel.innerHTML = TEKSTEN.map(t =>
+    `<option value="${t.id}">${t.icon} ${t.title}</option>`
+  ).join('');
+  // default to first text
+  currentTextId = TEKSTEN[0].id;
+  sel.value = currentTextId;
+}
+
+function selectText(id) {
+  currentTextId = id;
+  sentIdx = 0;
+  sentEnVisible = false;
+  buildSentList();
+  renderSentCard();
+}
+
+function buildSentList() {
+  SENT_LIST = [];
+  const texts = currentTextId
+    ? TEKSTEN.filter(t => t.id === currentTextId)
+    : TEKSTEN;
+  texts.forEach(t => {
+    t.sections.forEach(s => {
+      s.sentences.forEach(sent => {
+        SENT_LIST.push({ nl: sent.nl, en: sent.en, source: t.title, heading: s.heading });
+      });
+    });
+  });
+}
+
+function renderSentCard() {
+  const card = document.getElementById('sent-card');
+  if (!card || !SENT_LIST.length) return;
+
+  sentEnVisible = false;
+
+  const item = SENT_LIST[sentIdx];
+  const _key = item.nl.replace(/\\"/g, '"');
+  const hi = SENT_HIGHLIGHTS[_key] || SENT_HIGHLIGHTS[item.nl] || { words: [] };
+
+  // build Dutch sentence with inline clickable keywords
+  let dutchHtml = item.nl.replace(/"/g, '&quot;');
+  const sortedWords = [...hi.words].sort((a,b) => b.length - a.length);
+  sortedWords.forEach(w => {
+    const escaped = w.replace(/[-\/\^$*+?.()|[\]{}]/g,'\\$&');
+    const saved = isSaved(w);
+    const starHtml = `<span class="kw-star">${saved ? '★' : ''}</span>`;
+    dutchHtml = dutchHtml.replace(
+      new RegExp('(' + escaped + ')', 'i'),
+      `<span class="kw-inline ${saved?'kw-saved':''}" onclick="toggleSave('${w}')">$1${starHtml}</span>`
+    );
+  });
+
+  const sourceLabel = item.heading
+    ? `${item.source} · ${item.heading}`
+    : item.source;
+
+  card.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <div class="a1-source" style="margin-bottom:0">📄 ${sourceLabel}</div>
+      <button onclick="toggleSentEN()" style="font-size:18px;border:none;background:transparent;cursor:pointer;padding:0;line-height:1;flex-shrink:0;opacity:.8" title="toon/verberg vertaling">🇬🇧</button>
+    </div>
+    <div class="a1-dutch">${dutchHtml}</div>
+    <div class="a1-english" id="sent-en" style="display:none">${item.en}</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:10px;border-top:1px solid var(--border)">
+      <button onclick="prevSent()" style="background:transparent;border:1px solid var(--border2);border-radius:var(--radius-sm);padding:5px 14px;font-size:18px;cursor:pointer;color:var(--text2);line-height:1">‹</button>
+      <span style="font-size:11px;font-family:var(--font-mono);color:var(--text3)">${sentIdx + 1} / ${SENT_LIST.length}</span>
+      <button onclick="nextSent()" style="background:var(--p400);border:none;border-radius:var(--radius-sm);padding:5px 14px;font-size:18px;cursor:pointer;color:#fff;line-height:1">›</button>
+    </div>`;
+}
+
+function nextSent() {
+  sentIdx = (sentIdx + 1) % SENT_LIST.length;
+  renderSentCard();
+}
+
+function prevSent() {
+  sentIdx = (sentIdx - 1 + SENT_LIST.length) % SENT_LIST.length;
+  renderSentCard();
+}
+
+function toggleSentEN() {
+  sentEnVisible = !sentEnVisible;
+  const el = document.getElementById('sent-en');
+  if (el) el.style.display = sentEnVisible ? 'block' : 'none';
+}
+
+// ═══════════════════════════════════════════
+//  INIT — after all functions are defined
+// ═══════════════════════════════════════════
 updateDdays();
 updateNavCount();
-nextA1();
+populateSentSelector();
+buildSentList();
+renderSentCard();
+renderTekstenList();
 </script>
 </body>
 </html>
